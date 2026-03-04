@@ -1,0 +1,77 @@
+.departures-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.departures-loading,
+.departures-error,
+.departures-empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--uj-text-muted);
+}
+
+.departures-error {
+  color: var(--uj-accent);
+}
+
+.departures-list {
+  flex: 1;
+  overflow: hidden;
+}
+
+.departure-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--uj-border);
+}
+
+.departure-line {
+  min-width: 2.5rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+}
+
+.line-tram {
+  background: var(--uj-primary);
+}
+
+.line-bus {
+  background: #2196F3;
+}
+
+.departure-direction {
+  flex: 1;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.departure-time {
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--uj-primary);
+  min-width: 4rem;
+  text-align: right;
+}
+
+.departure-delayed {
+  color: var(--uj-accent);
+}
+
+.departure-delay {
+  font-size: 1rem;
+  color: var(--uj-accent);
+  font-weight: 600;
+}
