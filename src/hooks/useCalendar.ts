@@ -1,10 +1,34 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { CalendarEvent } from '../types';
 import { parseIcsEvents, saveEventsToStorage, loadEventsFromStorage } from '../utils/icsParser';
 
+const ICS_URL = '/calendar.ics';
+const REFRESH_INTERVAL_MS = 60 * 60 * 1000;
+
 export function useCalendar() {
   const [events, setEvents] = useState<CalendarEvent[]>(() => loadEventsFromStorage() ?? []);
-  const [hasFile, setHasFile] = useState(() => events.length > 0);
+  const [hasFile, setHasFile] = useState(() => (loadEventsFromStorage() ?? []).length > 0);
+
+  const loadFromUrl = useCallback(async () => {
+    try {
+      const res = await fetch(ICS_URL, { cache: 'no-store' });
+      if (!res.ok) return;
+      const text = await res.text();
+      const parsed = parseIcsEvents(text);
+      if (parsed.length === 0) return;
+      setEvents(parsed);
+      saveEventsToStorage(parsed);
+      setHasFile(true);
+    } catch (_) {
+      void 0;
+    }
+  }, []);
+
+  useEffect(() => {
+    loadFromUrl();
+    const id = setInterval(loadFromUrl, REFRESH_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [loadFromUrl]);
 
   const handleFileUpload = useCallback((file: File) => {
     const reader = new FileReader();

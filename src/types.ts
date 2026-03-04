@@ -3,6 +3,8 @@ export interface CalendarEvent {
   summary: string;
   location: string;
   description: string;
+  courseType: string;
+  lecturer: string;
   start: Date;
   end: Date;
 }

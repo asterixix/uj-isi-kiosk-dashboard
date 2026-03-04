@@ -1,6 +1,11 @@
 import ICAL from 'ical.js';
 import type { CalendarEvent } from '../types';
 
+function extractDescriptionField(description: string, key: string): string {
+  const re = new RegExp(`${key}:\\s*([^\\n]+)`, 'i');
+  return description.match(re)?.[1]?.trim() ?? '';
+}
+
 export function parseIcsEvents(icsText: string): CalendarEvent[] {
   const jcalData = ICAL.parse(icsText);
   const comp = new ICAL.Component(jcalData);
@@ -15,11 +20,14 @@ export function parseIcsEvents(icsText: string): CalendarEvent[] {
   return vevents
     .map((vevent: ICAL.Component) => {
       const event = new ICAL.Event(vevent);
+      const rawDescription = event.description || '';
       return {
         id: event.uid || crypto.randomUUID(),
         summary: event.summary || 'Untitled Event',
-        location: event.location || '',
-        description: event.description || '',
+        location: event.location || extractDescriptionField(rawDescription, 'Sala'),
+        description: rawDescription,
+        courseType: extractDescriptionField(rawDescription, 'Rodzaj zajęć'),
+        lecturer: extractDescriptionField(rawDescription, 'Prowadzący'),
         start: event.startDate.toJSDate(),
         end: event.endDate.toJSDate(),
       };
@@ -41,6 +49,8 @@ export function loadEventsFromStorage(): CalendarEvent[] | null {
     const parsed = JSON.parse(data) as CalendarEvent[];
     return parsed.map((e) => ({
       ...e,
+      courseType: e.courseType ?? '',
+      lecturer: e.lecturer ?? '',
       start: new Date(e.start),
       end: new Date(e.end),
     }));

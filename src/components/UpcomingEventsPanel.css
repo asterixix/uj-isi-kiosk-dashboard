@@ -110,6 +110,11 @@
   font-size: 0.85rem;
 }
 
+.event-time-end {
+  font-size: 0.7rem;
+  color: var(--uj-text-muted);
+}
+
 .event-date {
   font-size: 0.7rem;
   color: var(--uj-text-muted);
@@ -123,13 +128,40 @@
 .event-summary {
   font-weight: 600;
   font-size: 0.85rem;
-  margin-bottom: 0.05rem;
+  margin-bottom: 0.15rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  align-items: center;
+}
+
+.event-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--uj-primary);
+  color: #fff;
+  border-radius: 3px;
+  padding: 0.05rem 0.3rem;
+  white-space: nowrap;
+}
+
 .event-location {
+  font-size: 0.7rem;
+  color: var(--uj-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-lecturer {
   font-size: 0.7rem;
   color: var(--uj-text-muted);
   overflow: hidden;
