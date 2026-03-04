@@ -11,6 +11,11 @@ export const appConfig = {
     refreshIntervalMs: 600_000,
   },
 
+  airQuality: {
+    baseUrl: 'https://air-quality-api.open-meteo.com/v1/air-quality',
+    refreshIntervalMs: 1_800_000,
+  },
+
   stops: [
     {
       id: 'kampus-uj',

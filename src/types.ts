@@ -30,3 +30,9 @@ export interface WeatherData {
   windSpeed: number;
   time: string;
 }
+
+export interface AirQualityData {
+  pm10: number;
+  pm25: number;
+  europeanAqi: number;
+}

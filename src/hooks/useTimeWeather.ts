@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import type { WeatherData } from '../types';
+import type { WeatherData, AirQualityData } from '../types';
 import { appConfig } from '../config/appConfig';
 
 interface TimeState {
@@ -23,6 +23,7 @@ export function useTimeWeather() {
   const [clock, setClock] = useState<TimeState>(formatWarsawTime);
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherError, setWeatherError] = useState(false);
+  const [airQuality, setAirQuality] = useState<AirQualityData | null>(null);
   const lastFetchRef = useRef<string>('');
 
   useEffect(() => {
@@ -57,5 +58,29 @@ export function useTimeWeather() {
     return () => clearInterval(id);
   }, []);
 
-  return { clock, weather, weatherError, lastWeatherFetch: lastFetchRef.current };
+  useEffect(() => {
+    const fetchAirQuality = async () => {
+      try {
+        const { lat, lon } = appConfig.location;
+        const url = `${appConfig.airQuality.baseUrl}?latitude=${lat}&longitude=${lon}&current=pm10,pm2_5,european_aqi`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const current = data.current;
+        setAirQuality({
+          pm10: Math.round(current.pm10),
+          pm25: Math.round(current.pm2_5),
+          europeanAqi: Math.round(current.european_aqi),
+        });
+      } catch {
+        void 0;
+      }
+    };
+
+    fetchAirQuality();
+    const id = setInterval(fetchAirQuality, appConfig.airQuality.refreshIntervalMs);
+    return () => clearInterval(id);
+  }, []);
+
+  return { clock, weather, weatherError, airQuality, lastWeatherFetch: lastFetchRef.current };
 }

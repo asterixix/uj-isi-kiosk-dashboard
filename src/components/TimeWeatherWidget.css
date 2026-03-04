@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   height: 100%;
@@ -70,4 +70,78 @@
 
 .weather-error {
   color: var(--uj-accent);
+}
+
+:root {
+  --aqi-good: #50c878;
+  --aqi-fair: #a8d08d;
+  --aqi-moderate: #f4c430;
+  --aqi-poor: #ff8c00;
+  --aqi-very-poor: #c0392b;
+  --aqi-extremely-poor: #7b241c;
+}
+
+.air-quality-section {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid var(--uj-primary);
+}
+
+.air-quality-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.air-quality-icon {
+  font-size: 0.9rem;
+}
+
+.air-quality-label {
+  font-size: clamp(0.7rem, 1.3vh, 0.9rem);
+  font-weight: 600;
+  flex: 1;
+}
+
+.air-quality-eaqi {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  white-space: nowrap;
+}
+
+.air-quality-values {
+  display: flex;
+  gap: 0.75rem;
+  font-size: clamp(0.65rem, 1.1vh, 0.8rem);
+  color: var(--uj-text-muted);
+}
+
+.air-quality-pm b {
+  color: var(--uj-text);
+  font-weight: 600;
+}
+
+.logos-section {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 0.6rem;
+  width: 100%;
+  padding-top: 0.4rem;
+}
+
+.logo-img {
+  height: clamp(24px, 4vh, 40px);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
 }
