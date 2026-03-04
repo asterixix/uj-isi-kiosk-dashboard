@@ -1,0 +1,200 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "bbox": [
+                        276,
+                        64,
+                        548,
+                        73
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                276,
+                                64,
+                                548,
+                                75
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        276,
+                                        64,
+                                        548,
+                                        75
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM SEMESTR LETNI 2025/2026 – ZARZĄDZANIE INFORMACJĄ II rok I stopień stacjonarne",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        376,
+                        74,
+                        447,
+                        82
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 1,
+                    "lines": [
+                        {
+                            "bbox": [
+                                377,
+                                75,
+                                448,
+                                83
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        377,
+                                        75,
+                                        448,
+                                        83
+                                    ],
+                                    "type": "text",
+                                    "content": "Wersja: 2.0 – 02.03.2026 r.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        369,
+                        93,
+                        454,
+                        100
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                370,
+                                93,
+                                454,
+                                101
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        370,
+                                        93,
+                                        454,
+                                        101
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        282,
+                        101,
+                        542,
+                        110
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                282,
+                                101,
+                                542,
+                                110
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        282,
+                                        101,
+                                        542,
+                                        110
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Szczegóły dotyczące dokładnych terminów zajęć należy sprawdzić w aplikacji USOSweb.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        48,
+                        129,
+                        744,
+                        532
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                48,
+                                129,
+                                744,
+                                532
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        48,
+                                        129,
+                                        744,
+                                        532
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                48,
+                                                129,
+                                                744,
+                                                532
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td></td><td>PONIEDZIALEK</td><td colspan=\"4\">WTOREK</td><td colspan=\"2\">ŚRODA</td><td colspan=\"2\">CZWARTEK</td><td>PIAJTEK</td></tr><tr><td>08:00-9:30</td><td></td><td></td><td></td><td></td><td></td><td colspan=\"2\">8:00-9:30Organizacja informacji wiedzzy - wyklad (0.313)prof. dr hab. Wiesław Babik</td><td></td><td></td><td></td></tr><tr><td>09:45-11:15</td><td></td><td colspan=\"4\">9:45-11:15/raz na dwa tygodnie - parzyste/Wstep do pragmatyki jejzyskie - konwersatorium (3.118)dr Paloma Korycińska</td><td colspan=\"2\">9:45-11:15Zarjiangianie informacja w bibliotekach i osrodkachinformacja - wyklad (0.313)dr hab. Marek Nahotko, prof. UJ</td><td colspan=\"2\">9:45-11:15.Język angielski B2 (3.228)mgr Ewa Kosteczka</td><td></td></tr><tr><td>11:30-13:00</td><td>11:30-13:00Wpwadzanie do diagnostiki interfejsówuzywnika - czwena (3.121)1 dr hab. Magdalena Wychik prof. UJ, /02.03-23.03.2026/2 dr Malgorzata Jaskowska/30.03 - 27.04.2026 r./</td><td colspan=\"4\">11:30-13:00Information in social communication - czwenia (3.121)dr Paloma Korycińska</td><td colspan=\"2\">11:30-13:00r/a na dwa tygodnie - parzyste/Gatunki tekstów elektronicznychw zarjiangianu informacja - konwersatorium (3.119)dr hab. Marek Nahotko prof. UJ</td><td colspan=\"2\">11:30-13:00Zarjiangianie informacja w bibliotekach i osrodkach informacja - konwersatorium (0.313)mgr Ewa Kosteczka</td><td></td></tr><tr><td>13:15-14:45</td><td>13:15-14:45Język angielski C1 (3.228)mgr Ewa Kosteczka</td><td></td><td></td><td></td><td></td><td colspan=\"2\">13:15-14:45Język angielski C1 (3.119)mgr Ewa Kosteczka</td><td></td><td></td><td></td></tr><tr><td>15:00-16:30</td><td>15:00-16:30Język angielski B2 (3.228)mgr Ewa Kosteczka</td><td>15:00-16:30, gr. 1Zarjiangianie informacja w bibliotekach i osrodkachinformacja - czwenia (3.120)mgr Wojciech Kowalewski</td><td>15:00-16:30, gr. 2Pragmatyku projektomaniaproduków i ustug informczynych-user experience design - czwenia (3.119)dr Magdalena Zych</td><td>15:00-16:30, gr. 3Siedl - teorie i praktey - czwenia (3.102)dr Krzysztof Darmo</td><td>15:00-16:30, gr. 2Organizacja informacja i wydzy - czwenia (2.121)dr hab. Marek Nahotko, prof. UJ,dr Paloma Korycińska/naprzemienie/</td><td colspan=\"2\">15:00-16:30, gr. 1Siedl - teorie i praktey - czwenia (3.121)dr Magdalena Zych</td><td colspan=\"2\">15:00-16:30Siedl - teorie i praktey - wyklad (0.313)dr hab. Rafał Maciag, prof. UJ</td><td></td></tr><tr><td>16:45-18:15</td><td>16:45-18:15Język angielski B2 (3.228)mgr Ewa Kosteczka</td><td>16:45-18:15, gr. 2Zarjiangianie informacja w bibliotekach i osrodkach informacja - czwenia (3.120)mgr Wojciech Kowalewski</td><td>16:45-18:15, gr. 3Pragmatyku projektomaniaproduków i ustug informczynych - user experience design - czwenia (3.119)dr Magdalena Zych</td><td>16:45-18:15, gr. 3Siedl - teorie i praktey - czwenia (2.121)dr hab. Marek Nahotko, prof. UJdr Paloma Korycińska/naprzemienie/</td><td colspan=\"2\">16:45-18:15, gr. 2Siedl - teorie i praktey - czwenia (3.121)dr Magdalena Zych</td><td colspan=\"2\">16:45-18:15r/a na dwa tygodnie - piezarysste/Systemy zarjiangania wprojektach i zespolach - czwenia (3.119)mgr Malgorzata Stanula</td><td colspan=\"2\">16:45-18:15r/a na dwa tygodnie - piezarysste/Systemy zarjiangania wprojektach i zespolach - konwersatorium (0.313)mgr Malgorzata Stanula</td></tr><tr><td>18:30-20:00</td><td></td><td>18:30-20:00, gr. 3Zarjiangianie informacja w bibliotekach i osrodkach informacja - czwenia (3.120)mgr Wojciech Kowalewski</td><td>18:30-20:00, gr. 1Pragmatyku projektomaniaproduków i ustug informczynych - user experience design - czwenia (3.119)dr Magdalena Zych</td><td>18:30-20:00, gr. 1Organizacja informacja i wydzy - czwenia (2.121)dr hab. Marek Nahotko, prof. UJdr Paloma Korycińska/naprzemienie/</td><td colspan=\"2\">18:30-20:00, gr. 1Organizacja informacja i wydzy - czwenia (2.121)dr hab. Marek Nahotko, prof. UJdr Paloma Korycińska/naprzemienie/</td><td></td><td></td><td></td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/bbf52ff2-a06b-4eca-b1c4-f90f102d5fb1/e30c59cd63bd684b3ad2a6f66471d4ba36f8e5d39d091c8814f4e61f48617431.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 4
+                }
+            ],
+            "discarded_blocks": [],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

@@ -1,0 +1,201 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "type": "table",
+                    "bbox": [
+                        134,
+                        51,
+                        703,
+                        537
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                289,
+                                29,
+                                550,
+                                42
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        287,
+                                        28,
+                                        550,
+                                        44
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                287,
+                                                28,
+                                                550,
+                                                44
+                                            ],
+                                            "type": "text",
+                                            "content": "HARMONOGRAM ZAJĘĆ – II ROK, II ST. (sem. letni 2025/2026)",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 0,
+                            "angle": 0,
+                            "type": "table_caption"
+                        },
+                        {
+                            "bbox": [
+                                134,
+                                51,
+                                703,
+                                537
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        134,
+                                        51,
+                                        703,
+                                        537
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                134,
+                                                51,
+                                                703,
+                                                537
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td></td><td>PONIEDZIAŁEK</td><td>WTOREK</td><td>ŚRODA</td><td>CZWARTEK</td><td>PIÅTEK</td></tr><tr><td>8:00-9:30</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>9:45-11:15</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>11:30-13:00</td><td></td><td></td><td>SEMINARIUM, s. 3.117\nSeminarium dyplomowe 2\nprof. dr hab. Mariusz Flasiński</td><td></td><td></td></tr><tr><td>13:15-14:45</td><td></td><td>CWICZENIA, s. 2.121\nProjekt dyplomowy\n21.04., 28.04., 05.05., 12.05., 19.05.,\n26.05., 02.06., w godz. 13:15-14:45,\n09.06., w godz. 13:15-14:00\nmgr Maciej Godny</td><td>Konwersatorium, s.2,109\nIndustry communication in the IT sector\ndr Paloma Korycińska</td><td></td><td></td></tr><tr><td>15:00-16:30</td><td>WYKTAD, s.3.117\nWprowadzenia do zarjiangdania firmg\n02.03., 09.03., 16.03.,w godz.\n15:00-16:30 + 16:45-18:15 +\n18:30-19:15\ndr Aneta Lipińska</td><td></td><td></td><td></td><td></td></tr><tr><td>16:45-18:15</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>18:30-20:00</td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/2e413a27-21d5-4bc2-bf27-f5cf7712e8a0/3ae0764c520a7b2cdc4f77a5eeef7938279318787c388eb247b4f1b1fa9ea2d7.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 1,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 1
+                }
+            ],
+            "discarded_blocks": [
+                {
+                    "bbox": [
+                        196,
+                        546,
+                        336,
+                        554
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                195,
+                                545,
+                                337,
+                                555
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        195,
+                                        545,
+                                        337,
+                                        555
+                                    ],
+                                    "type": "text",
+                                    "content": "UWAGI: Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        632,
+                        542,
+                        694,
+                        550
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                630,
+                                539,
+                                696,
+                                551
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        630,
+                                        539,
+                                        696,
+                                        551
+                                    ],
+                                    "type": "text",
+                                    "content": "Ostatnia aktualizacja:",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        647,
+                        551,
+                        693,
+                        557
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 4,
+                    "lines": [
+                        {
+                            "bbox": [
+                                646,
+                                550,
+                                694,
+                                558
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        646,
+                                        550,
+                                        694,
+                                        558
+                                    ],
+                                    "type": "text",
+                                    "content": "23.02.2026 roku",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

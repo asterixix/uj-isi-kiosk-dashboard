@@ -1,0 +1,371 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "type": "table",
+                    "bbox": [
+                        24,
+                        42,
+                        813,
+                        423
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                24,
+                                42,
+                                813,
+                                423
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        24,
+                                        42,
+                                        813,
+                                        423
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                24,
+                                                42,
+                                                813,
+                                                423
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td></td><td>PONIEDZIAEK</td><td colspan=\"2\">WTOREK</td><td colspan=\"2\">ŚRODA</td><td colspan=\"2\">CZWARTEK</td><td>Piqtek</td><td></td></tr><tr><td>8:00-9:30</td><td>WYKLAD, s. 3.229\nAnaliza matematyczna i algebra liinowa\ndr hab. Rafal Czyż prof. UJ</td><td>LABORATORUM, s. 3.102\nWprowadzenia do programwomania (gr.1)\nmgr Kryszof Darmol</td><td>-</td><td></td><td>CzWIZENIA, s. 3.102\nWprowadzenia do programwomania - Projekt (gr.2)\n23.04, 29.04, 6.05, 13.05, 20.05, 27.05,\n23.04, 6.05, 13.05, 20.05, 27.05,\n23.04, 6.05, 13.05, 20.05, 27.05,\n23.04, 6.05, 13.05, 20.05, 27.05,\n23 030\nmgr Kryszof Wrobel</td><td>WYKLAD, s.0.313\nData and informations curation in business\ndr Paloma Korcińska</td><td></td><td></td><td></td></tr><tr><td>9:45-11:15</td><td>CzWICENIA, s. 3.116\nAnaliza matematyczna i algebra liinowa (gr. II)\ndr hab. Halska Tutaj-Gasilica</td><td></td><td>CzWICENIA, s. 3.117\nAnaliza matematyczna i algebra liinowa (gr. III)\ndr Michal Farnik</td><td>LABORATORUM, s. 3.102\nWprowadzenia do programwomania (gr.2)\nmgr Kryszof Darmol</td><td>CzWICENIA, s. 3.116\nLogika [gr.1]\ndr Piotr Sliwarski</td><td>Conversatorium, s. 3.229\nAntropologia obrazu (gr.1)\ndr Michalina Lubaszewska</td><td>WYKLAD, online\nWprowadzenia do programwomania\ndr hab.uz. Aleksandra Kawala-Sterniuk</td><td>WYKLAD, s.3.229\nPOETKA\n27.02, 13.03, 27.03, 10.04, 24.04, 28.05, 22.05, w.god.9-45\n11.15-12.06, w.god. 10.30-11.15\ndr hab. Dorota Korwin-Piotrowska, prof. UJ</td><td></td></tr><tr><td>11:30-13:00</td><td>WYKLAD, s.1.201\nWprowadzenia do jężykoznastwa\n02.03, 09.03, 16.03, 23.03, 30.03, 13.04, 20.04, w gods. 11.30-\n13.00, 17.04, w god. 11.30-12.15\ndr hab. Izabela Gąkowska, prof. UJ</td><td></td><td>CzWICENIA, s. 3.102\nWprowadzenia do programwomania (gr.3)\nmgr Kryszof Darmol</td><td></td><td>Conversatorium, s. 3.229\nAntropologia obrazu (gr.2)\ndr Michalina Lubaszewska</td><td>CzWICENIA, s. 3.116\nLogika [gr. II]\ndr Piotr Sliwarski</td><td></td><td>CzWICENIA, s. 3.117\nPoetyka (gr. III)\ndr hab. Dorota Korwin-Piotrowska, prof. UJ</td><td></td></tr><tr><td>13:15-14:45</td><td></td><td>Konwersatorium s. 3.229\nProjektozaniegrażne 1\nmgr Piotr Bialask</td><td></td><td></td><td>Conversatorium, s. 3.229\nAntropologia obrazu (gr.3)\ndr Michalina Lubaszewska</td><td>CzWICENIA, s. 3.116\nLogika [gr. III]\ndr Piotr Sliwarski</td><td></td><td></td><td></td></tr><tr><td>15:00-16:30</td><td></td><td>CzWICENIA, s. 3.117\nAnaliza matematyczna i\nalgebra liinowa (gr. I)\ndr hab. Darus Cichor</td><td></td><td></td><td>WYKLAD, s. 3.202\nLogika\n15:30-17:00</td><td></td><td>CzWICENIA, s. 3.218\nWprowadzenia do jężykoznastwa (gr.1)\ndr Dorota Kozolskij</td><td>CzWICENIA, s. 3.102\nBazy danych 1 (gr.2)\nmgr Kryczof Darmol</td><td>WYKLAD, s.3.229\nBazy danych 1\n15:45-17:14\ndr hab. Janusz Jurek, prof. UJ</td></tr><tr><td>16:45-18:15</td><td></td><td>CzWICENIA, s. 2.109\nProjektozaniegrażne 1\ngr.3)\n21.04, 28.04, 5.05, 12.05, 19.05, 26.0\n5, 2.06, w god. 16.45-18.15 i\nmgr Piotr Bialask</td><td>LABORATORUM, s. 3.102\nWprowadzenia do programwomania\nprojekt (gr.1)\n21.04, 28.04, 5.05, 12.05, 19.05, 26.05, 2.06, w god. 16.45-18.15 i\ngoda. 16.45-17.30\nmgr Kryszof Darmol</td><td></td><td></td><td></td><td>CzWICENIA, s. 3.117\nPoetyka (gr.II)\ndr Anna Folta-Russin</td><td>CzWICENIA, s. 3.228\nWprowadzenia do jęȩkoznastwa (gr.3)\ndr Dorota Kozolskij</td><td>CzWICENIA, s. 3.102\nBazy danych 1 (gr.1)\nmgr Kryczof Darmol</td></tr><tr><td>18:30-20:00</td><td></td><td>CzWICENIA, s. 2.109\nProjektozaniegrażne 1\ngr.1)\n21.04, 28.04, 5.05, 12.05, 19.05, 26.05, 2.06, w\ngoda: 18.30-20.00 i 9.06, w god: 18.30-\n19.15.\nmgr Piotr Bialask</td><td></td><td></td><td></td><td></td><td>CzWICENIA, s. 3.228\nWprowadzenia do jęȩkoznastwa (gr.2)\ndr Dorota Kozolskij</td><td></td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/793a81fc-a6c3-4df4-bc9e-d74f23ad8599/8488455331fd8e13a02fceeeffd54b90c2459930991baa354d97352f9ff51ace.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 1,
+                            "angle": 0,
+                            "type": "table_body"
+                        },
+                        {
+                            "bbox": [
+                                73,
+                                428,
+                                224,
+                                435
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        427,
+                                        225,
+                                        436
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                72,
+                                                427,
+                                                225,
+                                                436
+                                            ],
+                                            "type": "text",
+                                            "content": "Wychowanie fizyczne (w ciągu roku zgodnie z programem 60 godz.)",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "angle": 0,
+                            "type": "table_footnote"
+                        },
+                        {
+                            "bbox": [
+                                73,
+                                436,
+                                246,
+                                442
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        73,
+                                        436,
+                                        246,
+                                        442
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                73,
+                                                436,
+                                                246,
+                                                442
+                                            ],
+                                            "type": "text",
+                                            "content": "Informacja ze strony internetowej Studium Wychowania Fizycznego i Sportu UJ:",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 3,
+                            "angle": 0,
+                            "type": "table_footnote"
+                        },
+                        {
+                            "bbox": [
+                                73,
+                                443,
+                                548,
+                                449
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        442,
+                                        549,
+                                        451
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                72,
+                                                442,
+                                                549,
+                                                451
+                                            ],
+                                            "type": "text",
+                                            "content": "1. Studenci uczestniczący w zajęciach WF w semestrze zimowym 2025/2026 zostali zapisani do analogicznych grup zajęciowych w semestrze letnim. Prosimy sprawdzenie poprawności rejestracji oraz podpięcia przedmiotu.",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "angle": 0,
+                            "type": "table_footnote"
+                        },
+                        {
+                            "bbox": [
+                                73,
+                                449,
+                                598,
+                                456
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        449,
+                                        599,
+                                        457
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                72,
+                                                449,
+                                                599,
+                                                457
+                                            ],
+                                            "type": "text",
+                                            "content": "2. W razie konieczności rejestracji na WF lub zmiany grupy, prosimy o zapoznanie się z harmonogramem zajęć oraz o kontakt mailowy z prowadzącym (obecnym oraz prowadzącym docelową grupę). Prosimy o dopilnowanie podpięcia przedmiotu.",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 5,
+                            "angle": 0,
+                            "type": "table_footnote"
+                        },
+                        {
+                            "bbox": [
+                                73,
+                                456,
+                                531,
+                                463
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        455,
+                                        532,
+                                        464
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                72,
+                                                455,
+                                                532,
+                                                464
+                                            ],
+                                            "type": "text",
+                                            "content": "3. Studenci, którzy posiadają zwolnienie lekarskie z ćwiczeń mają obowiązek uczestniczenia w zajęciach teoretycznych (w formie wykładów on-line). W sprawie rejestracji do ww. prosimy o kontakt: swfis@uj.edu.pl.",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 6,
+                            "angle": 0,
+                            "type": "table_footnote"
+                        }
+                    ],
+                    "index": 1
+                },
+                {
+                    "bbox": [
+                        73,
+                        467,
+                        187,
+                        473
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 8,
+                    "lines": [
+                        {
+                            "bbox": [
+                                72,
+                                466,
+                                188,
+                                473
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        466,
+                                        188,
+                                        473
+                                    ],
+                                    "type": "text",
+                                    "content": "Więcej informacji: Studium Wychowania Fizycznego i Sportu UJ",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "discarded_blocks": [
+                {
+                    "bbox": [
+                        332,
+                        28,
+                        507,
+                        37
+                    ],
+                    "type": "header",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                331,
+                                26,
+                                508,
+                                38
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        331,
+                                        26,
+                                        508,
+                                        38
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM ZAJĘĆ – I ROK, I ST. (sem. letni 2025/2026)",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        73,
+                        483,
+                        169,
+                        490
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 9,
+                    "lines": [
+                        {
+                            "bbox": [
+                                72,
+                                483,
+                                170,
+                                490
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        72,
+                                        483,
+                                        170,
+                                        490
+                                    ],
+                                    "type": "text",
+                                    "content": "UWAGI: Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        730,
+                        483,
+                        806,
+                        490
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 10,
+                    "lines": [
+                        {
+                            "bbox": [
+                                729,
+                                483,
+                                807,
+                                490
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        729,
+                                        483,
+                                        807,
+                                        490
+                                    ],
+                                    "type": "text",
+                                    "content": "Ostatnia aktualizacja: 24.02.2026",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

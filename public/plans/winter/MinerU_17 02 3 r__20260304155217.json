@@ -1,0 +1,201 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "type": "table",
+                    "bbox": [
+                        14,
+                        51,
+                        815,
+                        509
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                270,
+                                30,
+                                559,
+                                44
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        270,
+                                        29,
+                                        559,
+                                        45
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                270,
+                                                29,
+                                                559,
+                                                45
+                                            ],
+                                            "type": "text",
+                                            "content": "HARMONOGRAM ZAJĘĆ – III ROK, I ST. (sem. letni 2025/2026)",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 0,
+                            "angle": 0,
+                            "type": "table_caption"
+                        },
+                        {
+                            "bbox": [
+                                14,
+                                51,
+                                815,
+                                509
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        14,
+                                        51,
+                                        815,
+                                        509
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                14,
+                                                51,
+                                                815,
+                                                509
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td></td><td>PONIEDZIALEK</td><td>WTOREK</td><td colspan=\"2\">ŚRODA</td><td>CZWARTEK</td><td colspan=\"2\">PIATEK</td></tr><tr><td>9:45-11:15</td><td></td><td></td><td colspan=\"2\"></td><td colspan=\"2\">CWICZENIA, s. 0.317Struktura informacji w tekSci (gr.1)26.02, 12.03, 26.03, 9.04, 23.04,07.05, 21.05,w 9:45-11:15 i 11.06. w godz: 10:30-11:15dr hab. Dorota Korwin-Piotrowska, prof. UJ</td><td></td></tr><tr><td>11:30-13:00</td><td></td><td></td><td colspan=\"2\"></td><td colspan=\"2\">CWICZENIA, s. 0.317Struktura informacji w tekSci (gr.2)26.02, 12.03, 26.03, 9.04, 23.04,07.05, 21.05,w 11:30-13:00 i 11.06. w godz: 11:30-12:15dr hab. Dorota Korwin-Piotrowska, prof. UJ</td><td></td></tr><tr><td>13:15-14:45</td><td></td><td>SEMINARIUM, s. 3.116Seminarium dyplomowe (gr. 3)dr Michalina Lubaszewska</td><td>LEKTORAT, s. 2.123Język angielski C1 ( gr.1)mgr Beata Panek</td><td></td><td>SEMINARIUM, s. 2.121Seminarium dyplomowe (gr. 1)dr Marek Deja</td><td></td><td></td></tr><tr><td>15:00-16:30</td><td></td><td>SEMINARIUM, s. 3.116Projekt dyplomowy (gr. 2)21.04, 28.04,06.05, 05.05, 12.05,19.05,02.06. w godz: 15:00-16:30 / 09.06.w godz: 15:00-15:45dr Michalina Lubaszewska</td><td>LEKTORAT, s. 2.123Język angielski C1 ( gr.2)mgr Beata Panek</td><td></td><td>SEMINARIUM, s. 2.121Projekt dyplomowy (gr. 1)16.04, 23.04, 30.04, 07.05, 14.05, 21.05, 28.05w godz: 15:00-16:30 / 11.06. w godz: 15:00-15:45dr Marek Deja</td><td></td><td></td></tr><tr><td>16:45-18:15</td><td></td><td></td><td colspan=\"2\"></td><td></td><td></td><td>SEMINARIUM, s. 2.109Seminarium dyplomowe (gr. 2)17:30-19:00dr hab. Janusz Jurek, prof. UJ</td></tr><tr><td>18:30-20:00</td><td></td><td></td><td colspan=\"2\"></td><td></td><td></td><td>SEMINARIUM, s. 2.109Projekt dyplomowy (gr 3)dr hab. Janusz Jurek, prof. UJ</td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/5f867806-073f-4315-b42f-dc4dbc3b03f2/c7cd620ac052ffb0ba2ae1ec07e95f00be70936664d7352d5d3d1bf6c555a58d.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 1,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 1
+                }
+            ],
+            "discarded_blocks": [
+                {
+                    "bbox": [
+                        84,
+                        522,
+                        238,
+                        533
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                83,
+                                521,
+                                238,
+                                533
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        83,
+                                        521,
+                                        238,
+                                        533
+                                    ],
+                                    "type": "text",
+                                    "content": "UWAGI: Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        718,
+                        517,
+                        796,
+                        527
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                717,
+                                516,
+                                797,
+                                527
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        717,
+                                        516,
+                                        797,
+                                        527
+                                    ],
+                                    "type": "text",
+                                    "content": "Ostatnia aktualizacja:",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        736,
+                        528,
+                        777,
+                        536
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 4,
+                    "lines": [
+                        {
+                            "bbox": [
+                                735,
+                                527,
+                                778,
+                                536
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        735,
+                                        527,
+                                        778,
+                                        536
+                                    ],
+                                    "type": "text",
+                                    "content": "17.02.2026",
+                                    "score": 0.97
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

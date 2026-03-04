@@ -1,0 +1,302 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "bbox": [
+                        228,
+                        61,
+                        476,
+                        69
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                228,
+                                61,
+                                478,
+                                69
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        228,
+                                        61,
+                                        478,
+                                        69
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM SEMESTR LETNI 2025/2026 – ZARZĄDZANIE INFORMACJĄ I rok I stopień stacjonarne",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        328,
+                        70,
+                        378,
+                        75
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 1,
+                    "lines": [
+                        {
+                            "bbox": [
+                                328,
+                                69,
+                                378,
+                                74
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        328,
+                                        69,
+                                        378,
+                                        74
+                                    ],
+                                    "type": "text",
+                                    "content": "Wersia:3.0-02.03.2026 r",
+                                    "score": 0.973
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        312,
+                        82,
+                        393,
+                        88
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                312,
+                                81,
+                                394,
+                                88
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        312,
+                                        81,
+                                        394,
+                                        88
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        233,
+                        89,
+                        472,
+                        96
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                233,
+                                88,
+                                472,
+                                96
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        233,
+                                        88,
+                                        472,
+                                        96
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Szczegóły dotyczące dokładnych terminów zajęć należy sprawdzić w aplikacji USOSweb.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        16,
+                        110,
+                        660,
+                        490
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                16,
+                                110,
+                                660,
+                                490
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        16,
+                                        110,
+                                        660,
+                                        490
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                16,
+                                                110,
+                                                660,
+                                                490
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td rowspan=\"3\">08:00-9:30</td><td colspan=\"2\">PONIEDZIALEK</td><td colspan=\"2\">WTOREK</td><td>ŚRODA</td><td colspan=\"3\">CZWARTEK</td><td>PIATEK</td></tr><tr><td colspan=\"2\">8:00-9:30 Wielkie bibliotiki i ich historia - wyklad (2.123) prof. dr hab. Zdzielaw Pietrzyk</td><td colspan=\"2\">8:00-9:30 Kolekcje zaobów informacjnych i kultura ksiazki w dziejech 1 - wyklad (0.313) prof. dr hab. Zdzielaw Pietrzyk</td><td></td><td></td><td></td><td></td><td>8:00-9:30, gr. 1 Zarzadzanie obiegiem dokumentów - czwzenia (3.121) dr Małgorzata Jaskowska</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"2\">09:45-11:15</td><td colspan=\"2\">9:45-11:15 Zródla informacja - wyklad (0.313) dr Małgorzata Jaskowska</td><td>9:45-11:15 /raz na dwa tygodnie - parzyste/ Kolekcje zaobów informacjnych i kultura ksiazki w dziejech 1 - wyklad (0.313) prof. dr hab. Zdzielaw Pietrzyk</td><td>9:45-11:15, gr. 1 /raz na dwa tygodnie - niarzystce/ Kolekcje zaobów informacjnych i kultura ksiazki w dziejech 1 - czwzenia (3.120) prof. dr hab. Zdzielaw Pietrzyk</td><td>9:45-13:00, gr. 1 Zródla informacja - czwzenia (3.120) dr Barbara Krawczyk</td><td colspan=\"3\">9:45-13:00, gr. 3 Zródla informacja - czwzenia (3.120) dr Barbara Krawczyk</td><td>9:45-11:15, gr. 2 Zarzadzanie obiegiem dokumentów - czwzenia (3.121) dr Małgorzata Jaskowska</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11:30-13:00, gr. 3 Zradyazdie obiegiem dokumentów - czwzenia (3.121) dr Małgorzata Jaskowska</td></tr><tr><td rowspan=\"2\">11:30-13:00</td><td colspan=\"2\">11:30-13:00 /raz na dwa tygodnie - niarzystce/ Polityka informacyjna organizacja - konwersatorium (0.313) dr hab. Monika Krakowska</td><td>11:30-13:00, gr. 2 /raz na dwa tygodnie - parzyste/ Kolekcje zaobów informacjnych i kultura ksiazki w dziejech 1 - czwzenia (3.120) prof. dr hab. Zdzielaw Pietrzyk</td><td>11:30-13:00, gr. 3 /raz na dwa tygodnie - niarzystce/ Kolekcje zaobów informacjnych i kultura ksiazki w dziejech 1 - czwzenia (3.120) prof. dr hab. Zdzielaw Pietrzyk</td><td>9:45-13:00, gr. 1 Zródla informacja - czwzenia (3.120) dr Barbara Krawczyk</td><td colspan=\"2\">11:30-13:00, gr. 3 Zradyazdie obiegiem dokumentów - czwzenia (3.121) dr Małgorzata Jaskowska</td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11:30-13:00, gr. 3 Zradyazdie obiegiem dokumentów - czwzenia (3.121) dr Małgorzata Jaskowska</td></tr><tr><td rowspan=\"2\">13:15-14:45</td><td>13:15-14:45 /raz na dwa tygodnie - niarzystce/ Human information behaviour and information bubbles phenomena - konwersatorium (3.120) dr hab. Monika Krakowska</td><td>13:15-14:45 /raz na dwa tygodnie - parzyste/ Kulture informacyjna organizacja - konwersatorium (2.121) dr Marek Deja</td><td>13:15-14:45, gr. 1 /raz na dwa tygodnie - parzyste/ Zaradzania tosamsociamii - czwzenia (3.120) dr Jagoda Mytych</td><td>13:15-14:45, gr. 2 /raz na dwa tygodnie - niarzystce/ Zaradzania tosamsociamii - czwzenia (3.120) dr Jagoda Mytych</td><td>13:15-14:45 Zaradzania informacja w organizacja - wyklad (0.313) dr Katarzyna Batorowska /26.02-26.03.2026 r./</td><td colspan=\"2\">13:15-14:45 Zradyazdie obiegiem - czwzenia (3.121) dr Katarzyna Batorowska /09.04-11.06.2026 r./</td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>13:15-14:45 Zradyazdie obiegiem - czwzenia (3.121) dr Katarzyna Batorowska</td></tr><tr><td>15:00-16:30</td><td colspan=\"2\">15:00-16:30 /razadyazdie danyimi - konwersatorium (3.121) dr Paloma Korycińska</td><td colspan=\"2\">15:00-16:30 /razadyazdie danyimi - konwersatorium (3.121) dr Paloma Korycińska</td><td>15:00-18:15, gr. 2 Zródla informacja - czwzenia (3.120) dr Barbara Krawczyk</td><td colspan=\"3\">15:00-16:30, gr. 1 /raz na dwa tygodnie - parzyste/ Zaradzanie bezpieczne stwem danych w sądowisku cyfrowym - konwersatorium (3.121) dr Katarzyna Batorowska</td><td></td></tr><tr><td>16:45-18:15</td><td colspan=\"2\">16:45-18:15 /raz na dwa tygodnie - parzyste/ Podstawy teorii i metodologii badań informacjnych - wyklad (0.313) dr Sabina Cisek</td><td colspan=\"2\">16:45-18:15 /raz na dwa tygodnie - parzyste/ Podstawy teorii i metodologii badań informacjnych - czwzenia (3.121) dr Hanna Gawel</td><td>16:45-18:15, gr. 1 /raz na dwa tygodnie - parzyste/ Podstawy teorii i metodologii badań informacjnych - czwzenia (3.121) dr Hanna Gawel</td><td colspan=\"2\">16:45-18:15, gr. 2 /raz na dwa tygodnie - parzyste/ Podstawy teorii i metodologii badań informacjnych - czwzenia (3.120) dr Katarzyna Batorowska</td><td></td><td></td></tr><tr><td>18:30-20:00</td><td colspan=\"2\">18:30-20:00 /razadyazdie danyimi - konwersatorium (3.121) dr Marek Deja</td><td colspan=\"2\">18:30-20:00 /razadyazdie danyimi - konwersatorium (3.121) dr Marek Deja</td><td colspan=\"4\">18:30-20:00 /razadyazdie danyimi - konwersatorium (3.121) dr Marek Deja</td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/3bb06231-e4a1-4289-9a03-e911afc639e2/997ddb1d151d807eab036e678bb2a71530659016a50f5624b2368a7d700b4734.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 4
+                },
+                {
+                    "bbox": [
+                        47,
+                        506,
+                        101,
+                        512
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 5,
+                    "lines": [
+                        {
+                            "bbox": [
+                                47,
+                                506,
+                                102,
+                                512
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        47,
+                                        506,
+                                        102,
+                                        512
+                                    ],
+                                    "type": "text",
+                                    "content": "WYCHOWANIE FIZYCZNE",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        47,
+                        513,
+                        206,
+                        519
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 6,
+                    "lines": [
+                        {
+                            "bbox": [
+                                46,
+                                512,
+                                206,
+                                520
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        46,
+                                        512,
+                                        206,
+                                        520
+                                    ],
+                                    "type": "text",
+                                    "content": "W semestrze letnim należy odbyć 30 godzin z przedmiotu wychowanie fizyczne.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        47,
+                        520,
+                        502,
+                        526
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 7,
+                    "lines": [
+                        {
+                            "bbox": [
+                                47,
+                                520,
+                                502,
+                                527
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        47,
+                                        520,
+                                        502,
+                                        527
+                                    ],
+                                    "type": "text",
+                                    "content": "Harmonogram zajęć oraz szczegółowe informacje dotyczące zapisów i warunków zaliczenia przedmiotu wychowanie fizyczne znajdują się na stronie internetowej Studium Wychowania Fizycznego i Sportu UJ https://swfis.uj.edu.pl.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "discarded_blocks": [],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

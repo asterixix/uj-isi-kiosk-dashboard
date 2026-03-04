@@ -1,0 +1,201 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "bbox": [
+                        301,
+                        37,
+                        538,
+                        48
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                300,
+                                36,
+                                539,
+                                49
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        300,
+                                        36,
+                                        539,
+                                        49
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM ZAJĘĆ – II ROK, I ST. (sem. letni 2025/2026)",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        115,
+                        54,
+                        724,
+                        530
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                115,
+                                54,
+                                724,
+                                530
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        115,
+                                        54,
+                                        724,
+                                        530
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                115,
+                                                54,
+                                                724,
+                                                530
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td></td><td>PONIEDZIALEK</td><td>WTOREK</td><td colspan=\"2\">ŚRODA</td><td>CZWARTEK</td><td>PIATEK</td></tr><tr><td>8:00-9:30</td><td>LABORATORIUM, s. 0.317Animacja komputerowa - projekt (gr.1)13.04., 20.04., 27.04., 11.05., 18.05.,25.05., 01.05., w godz. 08:00-09:30i09.6.w godz. 08:45-09:30mgr Maciej Godny</td><td>LABORATORIUM, s. 2.109System interakcyjny (gr. 1)mgr Tomasz Chojna</td><td></td><td>KONWERSATORIUM, s. 3.229Animacja komputerowa15.04., 22.04., 29.04., 06.05., 13.05.,20.05., 27.05.,w godz. 8:00-9:30 10.06.,w godz. 08:45-09:30mgr Piotr Bialasik</td><td>LEKTORAT, s. 3.217Język angielski C1( gr.1)mgr Łukasz Troszczyński</td><td></td></tr><tr><td>9:45-11:15</td><td>LABORATORIUM, s. 2.109Animacja komputerowa (gr.1)mgr Maciej Godny</td><td>LABORATORIUM, s. 2.109System interakcyjny (gr. 2)mgr Tomasz Chojna</td><td></td><td>LABORATORIUM, s. 2.121System interakcyjny -projekt22.04., 29.04., 6.05.,13.05.,20.05., 27.05., 3.06., w godz. 09:45-11:15 i 10.06., w godz. 09:45-10:30mgr Tomasz Chojna</td><td>LABORATORIUM, s. 2.109Administraacja systemuLinux/UNIX (gr 1)mgr inż. K. Wróbel</td><td>KONWERSATORIUM, s. 3.229Obraz filmowy (gr.1)26.02., 12.03., 26.03.,09.04., 23.04., 07.05., 21.05., w godz. 9:45-13:00 i 11.06. w godz. 11:30-13:00mgr Tomasz Dettloff</td></tr><tr><td>11:30-13:00</td><td>LABORATORIUM, s. 2.109Animacja komputerowa (gr.2)mgr Maciej Godny</td><td></td><td></td><td>CWICZENIA, s. 0.317Przetwarzanie informacja winternecie 1(gr.1)dr Dorota Rak</td><td>LABORATORIUM, s. 2.109Administraacja systemuLinux/UNIX (gr II)mgr inż. K. Wróbel</td><td></td></tr><tr><td>13:15-14:45</td><td>Wyklad, s. 3.229Psycholinguistyczmechanizmy percepji</td><td>LEKTORAT, s. 3.217Język angielski C1( gr. 2)14:00-15:30Thornton Christopher</td><td></td><td></td><td>WYKLAD, s. 0.313Prawo wlasnośćinteilekulturalny i prawoternetudr Nicholas Ghazal</td><td>KONWERSATORIUM, s. 3.229Obraz filmowy (gr.2)26.02., 12.03., 26.03.,09.04., 23.04., 07.05., 21.05., w godz. 13:15-16:30 i 11.06. w godz. 13:15-14:45mgr Tomasz Dettloff</td></tr><tr><td>15:00-16:30</td><td>02.03., 09.03., 16.03., 23.03., 30.03.,13.04.,20.04., w godz. 13:15-16:30 i 27.04.w godz. 13:15-14:45dr hab. Izabela Gatkowska,prof. UJ</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16:45-18:15</td><td>LABORATORIUM, s. 2.109User Experience Design -projekt02.03., 09.03., 16.03., 23.03., 30.03.,13.04.,20.04., w godz. 16:45-18:15 i 27.04., w godz.16:45-17:30dr Magdalena Zych</td><td></td><td></td><td></td><td>CWICZENIA, s. 0.317Przetwarzanie informacja winternecie 1(gr.2)dr Dorota Rak</td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/3a67c8b7-5fe5-47d9-af08-8198a7a5be00/262a7a6049b115314a8640875f0e4e3f4d1aa8a68d731322fcf25ed84b150bc9.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 1,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 1
+                }
+            ],
+            "discarded_blocks": [
+                {
+                    "bbox": [
+                        181,
+                        544,
+                        311,
+                        552
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                180,
+                                543,
+                                312,
+                                553
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        180,
+                                        543,
+                                        312,
+                                        553
+                                    ],
+                                    "type": "text",
+                                    "content": "UWAGI: Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        646,
+                        539,
+                        714,
+                        547
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                645,
+                                539,
+                                715,
+                                549
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        645,
+                                        539,
+                                        715,
+                                        549
+                                    ],
+                                    "type": "text",
+                                    "content": "Ostatnia aktualizacja:",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        679,
+                        549,
+                        714,
+                        556
+                    ],
+                    "type": "footer",
+                    "angle": 0,
+                    "index": 4,
+                    "lines": [
+                        {
+                            "bbox": [
+                                677,
+                                547,
+                                714,
+                                557
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        677,
+                                        547,
+                                        714,
+                                        557
+                                    ],
+                                    "type": "text",
+                                    "content": "17.02.2026",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

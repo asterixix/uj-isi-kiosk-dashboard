@@ -1,0 +1,200 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "bbox": [
+                        312,
+                        61,
+                        588,
+                        69
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                312,
+                                60,
+                                588,
+                                70
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        312,
+                                        60,
+                                        588,
+                                        70
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM SEMESTR LETNI 2025/2026 – ZARZĄDZANIE INFORMACJĄ III rok I stopień stacjonarne",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        423,
+                        70,
+                        476,
+                        76
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 1,
+                    "lines": [
+                        {
+                            "bbox": [
+                                423,
+                                70,
+                                478,
+                                76
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        423,
+                                        70,
+                                        478,
+                                        76
+                                    ],
+                                    "type": "text",
+                                    "content": "Wersja: 2.0 – 02.03.2026 r.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        407,
+                        83,
+                        493,
+                        89
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                407,
+                                85,
+                                493,
+                                89
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        407,
+                                        85,
+                                        493,
+                                        89
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        319,
+                        91,
+                        581,
+                        99
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                319,
+                                90,
+                                581,
+                                99
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        319,
+                                        90,
+                                        581,
+                                        99
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Szczegóły dotyczące dokładnych terminów zajęć należy sprawdzić w aplikacji USOSweb.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        48,
+                        118,
+                        751,
+                        527
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                48,
+                                118,
+                                751,
+                                527
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        48,
+                                        118,
+                                        751,
+                                        527
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                48,
+                                                118,
+                                                751,
+                                                527
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td colspan=\"2\">PONIEDZIALEK</td><td colspan=\"2\">WTOREK</td><td colspan=\"2\">ŚRODA</td><td colspan=\"2\">CZWARTEK</td><td colspan=\"2\">PIATEK</td></tr><tr><td rowspan=\"33\">08:00-9:30</td><td rowspan=\"10\">8:00-9:30 Seminarium licencijackie (3.121) dr Małgorzata Jaskowska</td><td></td><td></td><td></td><td></td><td></td><td></td><td rowspan=\"10\">8:00-11:45, gr. 1 Zajęcia terenowe dr Barbara Krawczyk</td><td rowspan=\"10\">8:00-11:45, gr. 2 Zajȩcia terenowe dr Barbara Krawczyk</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"23\">9:45-11:15 Kultura piAMIennicza:;dzieżtwo i rynek - konwersatorium (3.229) dr hab. Magdalena Wojcik, prof. UJ</td><td colspan=\"2\">9:45-11:15 Information Behaviour Expertise in Contexts - konwersatorium (3.121) dr hab. Monika Krakowska</td><td>9:45-11:15 Informatologia jak na nauka interdyscyplina – wyklad (2.123) dr hab. Diana Pietruch-Reizes, prof. UJ</td><td>9:45-11:15 Informatologiczne koncepje ekologii informaci – wyklad (3.228) prof. dr hab. Wiesław Babik</td><td>11:30-13:00 Transformacja cyfrowa - wyklad (2.123) dr hab. Rafal Maciag, prof. UJ</td><td></td><td rowspan=\"2\"></td><td rowspan=\"2\"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>11:30-13:00 Seminarium licencijackie (3.118) dr Katarzyna Batorowska</td><td>11:30-13:00 Seminarium licencijackie (3.119) dr Jagoda Mytych</td><td>11:30-13:00, gr. 1 /raz na dwa tgodnie - parzyste/ Webwriting - czwzenia (3.228) dr Jagoda Mytych</td><td>11:30-13:00, gr. 2 /raz na dwa tgodnie - nieparzyste/ Webwriting - czwzenia (3.228) dr Jagoda Mytych</td><td>13:15-14:45 Infobrokering i consultancy edukacjyny - czwzenia (3.121) mgr Malgorzata Stanula /26.02-16.04.2026 r./</td><td></td><td rowspan=\"2\"></td><td rowspan=\"2\"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13:15-14:45, gr. 1 /raz na dwa tgodnie - parzyste/ Kultura piAMIennicza:;dzieżtwo i rynek - czwzenia (3.118) dr Anna Folta-Rusin</td><td>13:15-14:45 Podstawy zaradzania informacja w nauce - wyklad (0.313) dr hab. Diana Pietruch-Reizes, prof. UJ</td><td>13:15-14:45 Naukoznawstwo - wyklad (0.313) 1. Dr hab. Remigiusz Sapa, prof. UJ /03.03-31.03.2026 r./, 2. dr Sabina Cisek 14.04-05.05.2026 r./, 3. dr hab. Diana Pietruch-Reizes, prof. UJ /12.05-09.06.2026 r./</td><td>15:00-16:30 Seminarium licencijackie (3.118) dr Dotora Rak</td><td>15:00-16:30 Uczestnictwo w systemie kulture - konwersatorium (2.123) dr Piotr Siwinski /26.02-23.04.2026 r./</td><td></td><td></td><td></td></tr><tr><td>15:00-16:30, gr. 2 /raz na dwa tgodnie - parzyste/ Kultura piAMIennicza:;dzieżtwo i rynek - czwzenia (3.118) dr Anna Folta-Rusin</td><td>15:00-16:30 Naukoznawstwo - wyklad (0.313) 1. Dr hab. Remigiusz Sapa, prof. UJ /03.03-31.03.2026 r./, 2. dr Sabina Cisek 14.04-05.05.2026 r./, 3. dr hab. Diana Pietruch-Reizes, prof./UJ /12.05-09.06.2026 r./</td><td>15:00-16:30 Seminarium licencijackie (3.118) dr Dotora Rak</td><td>15:00-16:30 Uczestnictwo w systemie kulture - konwersatorium (2.123) dr Piotr Siwinski /26.02-16.04.2026 r./</td><td></td><td></td><td rowspan=\"17\"></td><td rowspan=\"17\"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/4896089a-132f-496c-bb29-a0aa1721514b/a8d79aee8be07297931e61a678c4fee459c3bdb21558817c8335b12a2651677a.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 4
+                }
+            ],
+            "discarded_blocks": [],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}

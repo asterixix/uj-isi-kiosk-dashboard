@@ -1,0 +1,200 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "bbox": [
+                        247,
+                        61,
+                        528,
+                        70
+                    ],
+                    "type": "title",
+                    "angle": 0,
+                    "index": 0,
+                    "lines": [
+                        {
+                            "bbox": [
+                                246,
+                                60,
+                                528,
+                                71
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        246,
+                                        60,
+                                        528,
+                                        71
+                                    ],
+                                    "type": "text",
+                                    "content": "HARMONOGRAM SEMESTR LETNI 2025/2026 – ZARZĄDZANIE INFORMACJĄ II rok II stopień stacjonarne",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        359,
+                        71,
+                        414,
+                        76
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 1,
+                    "lines": [
+                        {
+                            "bbox": [
+                                360,
+                                70,
+                                415,
+                                76
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        360,
+                                        70,
+                                        415,
+                                        76
+                                    ],
+                                    "type": "text",
+                                    "content": "Wersja: 4.0 – 02.03.2026 r.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        343,
+                        84,
+                        432,
+                        91
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 2,
+                    "lines": [
+                        {
+                            "bbox": [
+                                343,
+                                83,
+                                433,
+                                91
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        343,
+                                        83,
+                                        433,
+                                        91
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Harmonogram może ulec zmianie.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bbox": [
+                        254,
+                        92,
+                        521,
+                        100
+                    ],
+                    "type": "text",
+                    "angle": 0,
+                    "index": 3,
+                    "lines": [
+                        {
+                            "bbox": [
+                                254,
+                                92,
+                                521,
+                                100
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        254,
+                                        92,
+                                        521,
+                                        100
+                                    ],
+                                    "type": "text",
+                                    "content": "Uwaga! Szczegóły dotyczące dokładnych terminów zajęć należy sprawdzić w aplikacji USOSweb.",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        48,
+                        116,
+                        624,
+                        530
+                    ],
+                    "blocks": [
+                        {
+                            "bbox": [
+                                48,
+                                116,
+                                624,
+                                530
+                            ],
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        48,
+                                        116,
+                                        624,
+                                        530
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                48,
+                                                116,
+                                                624,
+                                                530
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td colspan=\"3\">PONIEDZIALEK</td><td>WTOREK</td><td>ŚRODA</td><td colspan=\"2\">CZWARTEK</td><td>PIATEK</td></tr><tr><td></td><td></td><td></td><td>8:00-9:30Collaborative informationbehaviour in business - konwersatorium (0.318)dr hab. Monika Krakowska</td><td></td><td colspan=\"2\">8:00-9:30Data and information curation in business - konwersatorium (0.313)dr Paloma Korycińska</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan=\"2\">9:45-11:15Observatorium kulture - cwczenia (2.123)dr Paloma Korycińska</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11:30-13:00, gr. 1/raz na dwa tygodnie - parzyste/Projekty skoleniwo-rozwojowe kompetencji informacyjnych dlabiznesu - konwersatorium (3.121)mgr Malgorzata Stanula</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td rowspan=\"11\"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td rowspan=\"9\"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-03-04/1ccde5c8-3658-4e0c-a98a-23043e07baa7/c62aeedca85be484afac1cbd61d3d704b4ca0fa08942c377b6162b610ecc649f.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "angle": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 4
+                }
+            ],
+            "discarded_blocks": [],
+            "page_size": [
+                841,
+                595
+            ],
+            "page_idx": 0
+        }
+    ],
+    "_backend": "hybrid",
+    "_ocr_enable": false,
+    "_vlm_ocr_enable": false,
+    "_version_name": "2.7.6"
+}
