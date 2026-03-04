@@ -21,8 +21,14 @@ interface RouteInfo {
   headsign: string;
 }
 
-interface GtfsCache {
+interface ScheduledStop {
+  tripId: string;
+  departureTime: string;
+}
+
+interface GtfsStaticCache {
   tripMap: Map<string, RouteInfo>;
+  stopSchedules: Map<string, ScheduledStop[]>;
   fetchedAt: number;
 }
 
@@ -34,12 +40,13 @@ interface Departure {
   delaySeconds: number;
   vehicleType: 'tram' | 'bus';
   minutesAway: number;
+  isScheduled?: boolean;
 }
 
-const tramCache: GtfsCache = { tripMap: new Map(), fetchedAt: 0 };
-const busCache: GtfsCache = { tripMap: new Map(), fetchedAt: 0 };
+const tramCache: GtfsStaticCache = { tripMap: new Map(), stopSchedules: new Map(), fetchedAt: 0 };
+const busCache: GtfsStaticCache = { tripMap: new Map(), stopSchedules: new Map(), fetchedAt: 0 };
 
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 
 function parseCsv(text: string): Record<string, string>[] {
   const lines = text.replace(/\r/g, '').split('\n').filter(Boolean);
@@ -53,48 +60,69 @@ function parseCsv(text: string): Record<string, string>[] {
   });
 }
 
-async function loadGtfsLookup(zipUrl: string, cache: GtfsCache): Promise<Map<string, RouteInfo>> {
+function gtfsTimeToMinutes(t: string): number {
+  const [h, m] = t.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function minutesToDate(minutesSinceMidnight: number, todayMidnight: Date): Date {
+  const result = new Date(todayMidnight);
+  result.setMinutes(result.getMinutes() + minutesSinceMidnight);
+  return result;
+}
+
+async function loadGtfsStatic(zipUrl: string, cache: GtfsStaticCache, targetStopIds: string[]): Promise<GtfsStaticCache> {
   const now = Date.now();
   if (cache.tripMap.size > 0 && now - cache.fetchedAt < CACHE_TTL_MS) {
-    return cache.tripMap;
+    return cache;
   }
 
-  const res = await fetch(zipUrl, { signal: AbortSignal.timeout(15_000) });
+  const res = await fetch(zipUrl, { signal: AbortSignal.timeout(20_000) });
   if (!res.ok) throw new Error(`GTFS zip fetch failed: ${res.status}`);
 
   const buf = await res.arrayBuffer();
   const files = unzipSync(new Uint8Array(buf));
-
   const decoder = new TextDecoder('utf-8');
-  const tripsText = decoder.decode(files['trips.txt']);
-  const routesText = decoder.decode(files['routes.txt']);
 
   const routeMap = new Map<string, string>();
-  for (const row of parseCsv(routesText)) {
+  for (const row of parseCsv(decoder.decode(files['routes.txt']))) {
     if (row['route_id'] && row['route_short_name']) {
       routeMap.set(row['route_id'], row['route_short_name']);
     }
   }
 
   const tripMap = new Map<string, RouteInfo>();
-  for (const row of parseCsv(tripsText)) {
+  for (const row of parseCsv(decoder.decode(files['trips.txt']))) {
     const tripId = row['trip_id'];
     const routeId = row['route_id'];
-    const headsign = row['trip_headsign'] ?? '';
     if (tripId && routeId) {
       tripMap.set(tripId, {
         routeShortName: routeMap.get(routeId) ?? routeId,
-        headsign,
+        headsign: row['trip_headsign'] ?? '',
       });
     }
   }
 
+  const targetSet = new Set(targetStopIds);
+  const stopSchedules = new Map<string, ScheduledStop[]>();
+
+  for (const row of parseCsv(decoder.decode(files['stop_times.txt']))) {
+    const stopId = row['stop_id'];
+    if (!targetSet.has(stopId)) continue;
+    const dep = row['departure_time'] || row['arrival_time'];
+    if (!dep) continue;
+    const tripId = row['trip_id'];
+    if (!stopSchedules.has(stopId)) stopSchedules.set(stopId, []);
+    stopSchedules.get(stopId)!.push({ tripId, departureTime: dep });
+  }
+
   cache.tripMap = tripMap;
+  cache.stopSchedules = stopSchedules;
   cache.fetchedAt = now;
-  return tripMap;
+  return cache;
 }
 
-async function fetchDepartures(
+async function fetchLiveDepartures(
   pbUrl: string,
   targetStopIds: string[],
   tripMap: Map<string, RouteInfo>,
@@ -118,7 +146,6 @@ async function fetchDepartures(
 
     for (const stu of stopTimeUpdate) {
       if (!targetSet.has(stu.stopId ?? '')) continue;
-
       const scheduled = stu.departure?.time ?? stu.arrival?.time;
       if (!scheduled) continue;
 
@@ -126,7 +153,6 @@ async function fetchDepartures(
       const delaySeconds = Number(stu.departure?.delay ?? stu.arrival?.delay ?? 0);
       const expectedMs = scheduledMs + delaySeconds * 1000;
       const minutesAway = Math.round((expectedMs - now) / 60_000);
-
       if (minutesAway < -1) continue;
 
       departures.push({
@@ -137,6 +163,46 @@ async function fetchDepartures(
         delaySeconds,
         vehicleType,
         minutesAway,
+      });
+    }
+  }
+
+  return departures;
+}
+
+function getScheduledDepartures(
+  targetStopIds: string[],
+  stopSchedules: Map<string, ScheduledStop[]>,
+  tripMap: Map<string, RouteInfo>,
+  vehicleType: 'tram' | 'bus',
+  limitMinutes = 180,
+): Departure[] {
+  const warsawNow = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Warsaw' }));
+  const todayMidnight = new Date(warsawNow);
+  todayMidnight.setHours(0, 0, 0, 0);
+  const nowMinutes = warsawNow.getHours() * 60 + warsawNow.getMinutes();
+
+  const departures: Departure[] = [];
+
+  for (const stopId of targetStopIds) {
+    for (const entry of stopSchedules.get(stopId) ?? []) {
+      const depMinutes = gtfsTimeToMinutes(entry.departureTime);
+      const minutesAway = depMinutes - nowMinutes;
+      if (minutesAway < -1 || minutesAway > limitMinutes) continue;
+
+      const depDate = minutesToDate(depMinutes, todayMidnight);
+      const isoString = depDate.toISOString();
+      const info = tripMap.get(entry.tripId) ?? { routeShortName: '?', headsign: '' };
+
+      departures.push({
+        routeShortName: info.routeShortName,
+        headsign: info.headsign,
+        plannedDeparture: isoString,
+        expectedDeparture: isoString,
+        delaySeconds: 0,
+        vehicleType,
+        minutesAway,
+        isScheduled: true,
       });
     }
   }
@@ -164,18 +230,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const results: Departure[] = [];
 
     if (tramStopIds) {
-      const tramMap = await loadGtfsLookup(`${GTFS_BASE}/GTFS_KRK_T.zip`, tramCache);
-      const tramDeps = await fetchDepartures(`${GTFS_BASE}/TripUpdates_T.pb`, tramStopIds, tramMap, 'tram');
-      results.push(...tramDeps);
+      const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_T.zip`, tramCache, tramStopIds);
+      const live = await fetchLiveDepartures(`${GTFS_BASE}/TripUpdates_T.pb`, tramStopIds, staticData.tripMap, 'tram');
+      results.push(...(live.length > 0 ? live : getScheduledDepartures(tramStopIds, staticData.stopSchedules, staticData.tripMap, 'tram')));
     }
 
     if (busStopIds) {
       try {
-        const busMap = await loadGtfsLookup(`${GTFS_BASE}/GTFS_KRK_A.zip`, busCache);
-        const busDeps = await fetchDepartures(`${GTFS_BASE}/TripUpdates_A.pb`, busStopIds, busMap, 'bus');
-        results.push(...busDeps);
+        const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_A.zip`, busCache, busStopIds);
+        const live = await fetchLiveDepartures(`${GTFS_BASE}/TripUpdates_A.pb`, busStopIds, staticData.tripMap, 'bus');
+        results.push(...(live.length > 0 ? live : getScheduledDepartures(busStopIds, staticData.stopSchedules, staticData.tripMap, 'bus')));
       } catch {
-        // bus feed optional
+        void 0;
       }
     }
 

@@ -17,6 +17,7 @@ export interface Departure {
   delaySeconds: number;
   vehicleType: 'tram' | 'bus';
   minutesAway: number;
+  isScheduled?: boolean;
 }
 
 export interface NewsItem {

@@ -54,6 +54,9 @@ export function DeparturesPanel({ stopLabel, stopIds }: Props) {
             <div className={`departure-time ${dep.delaySeconds > 60 ? 'departure-delayed' : ''}`}>
               {dep.minutesAway <= 0 ? '>>>' : `${dep.minutesAway} min`}
             </div>
+            {dep.isScheduled && !dep.delaySeconds && (
+              <span className="departure-scheduled" title="Rozkładowy">◷</span>
+            )}
             {dep.delaySeconds > 60 && (
               <span className="departure-delay">+{Math.round(dep.delaySeconds / 60)}</span>
             )}
