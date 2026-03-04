@@ -27,7 +27,7 @@ export const appConfig = {
 
   departures: {
     refreshIntervalMs: 15_000,
-    maxDepartures: 8,
+    maxDepartures: 15,
   },
 
   news: {
