@@ -1,7 +1,7 @@
 .news-ticker {
   background-color: var(--uj-primary);
   color: white;
-  height: 48px;
+  height: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -27,9 +27,9 @@
 .ticker-item {
   flex-shrink: 0;
   padding-right: 0;
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 2.2vh, 1.6rem);
   font-weight: 500;
-  line-height: 48px;
+  line-height: 1;
 }
 
 @keyframes ticker {

@@ -1,8 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import gtfsRt from 'gtfs-realtime-bindings';
-const { transit_realtime } = gtfsRt;
 
-const GTFS_RT_BASE = 'https://gtfs.ztp.krakow.pl';
+const TTSS_BASE = 'https://ttss.mpk.krakow.pl/internetservice/services/passageInfo/stopPassages/stopDepartures';
 const CACHE_TTL_MS = 15_000;
 const MAX_DEPARTURES = 8;
 const FETCH_TIMEOUT_MS = 10_000;
@@ -24,99 +22,75 @@ interface CachedDepartures {
   expiresAt: number;
 }
 
+interface TtssPassage {
+  patternText: string;
+  direction: string;
+  plannedTime: string;
+  actualRelativeTime: number;
+  status: string;
+}
+
+interface TtssResponse {
+  actual: TtssPassage[];
+}
+
 const cache = new Map<string, CachedDepartures>();
 
-function isTramRoute(routeId: string): boolean {
-  const num = parseInt(routeId, 10);
-  return !isNaN(num) && num < 100;
+function toVehicleType(routeShortName: string): VehicleType {
+  const num = parseInt(routeShortName, 10);
+  return !isNaN(num) && num < 100 ? 'tram' : 'bus';
 }
 
-function toVehicleType(routeId: string): VehicleType {
-  return isTramRoute(routeId) ? 'tram' : 'bus';
+function buildPlannedISO(plannedTime: string): string {
+  const now = new Date();
+  const [hh, mm] = plannedTime.split(':').map(Number);
+  const planned = new Date(now);
+  planned.setHours(hh, mm, 0, 0);
+  // midnight crossing: "HH:MM" from TTSS is Warsaw local — if result is >6h in past, it belongs to tomorrow
+  if (now.getTime() - planned.getTime() > 6 * 3600 * 1000) {
+    planned.setDate(planned.getDate() + 1);
+  }
+  return planned.toISOString();
 }
 
-function toUnixSeconds(time: transit_realtime.IStopTimeEvent['time']): number {
-  if (time == null) return 0;
-  return typeof time === 'number' ? time : (time as { low: number }).low;
-}
-
-function toISOString(unixSeconds: number): string {
-  return new Date(unixSeconds * 1000).toISOString();
-}
-
-async function fetchGtfsRtFeed(filename: string): Promise<transit_realtime.FeedMessage> {
-  const response = await fetch(`${GTFS_RT_BASE}/${filename}`, {
+async function fetchTtssStop(stopId: string): Promise<Departure[]> {
+  const url = `${TTSS_BASE}?stopId=${encodeURIComponent(stopId)}&mode=departure&language=pl`;
+  const response = await fetch(url, {
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    headers: { 'User-Agent': 'UJ-ISI-Kiosk/2.0' },
+    headers: {
+      'User-Agent': 'UJ-ISI-Kiosk/2.0',
+      'Accept': 'application/json',
+    },
   });
 
   if (!response.ok) {
-    throw new Error(`GTFS-RT fetch failed: ${response.status} ${filename}`);
+    throw new Error(`TTSS API error: ${response.status} for stopId=${stopId}`);
   }
 
-  const buffer = await response.arrayBuffer();
-  return transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-}
+  const json = await response.json() as TtssResponse;
+  const passages = json.actual ?? [];
+  const now = Date.now();
 
-function matchesStopId(gtfsStopId: string | null | undefined, numericStopId: string): boolean {
-  if (!gtfsStopId) return false;
-  return gtfsStopId === numericStopId || gtfsStopId.endsWith(`_${numericStopId}`);
-}
+  return passages
+    .filter((p) => p.status !== 'DEPARTED' && p.actualRelativeTime >= -30)
+    .map((p): Departure => {
+      const minutesAway = Math.round(p.actualRelativeTime / 60);
+      const expectedISO = new Date(now + p.actualRelativeTime * 1000).toISOString();
+      const plannedISO = buildPlannedISO(p.plannedTime);
+      const delaySeconds = Math.round(
+        (new Date(expectedISO).getTime() - new Date(plannedISO).getTime()) / 1000,
+      );
 
-function extractDeparturesForStop(
-  feed: transit_realtime.FeedMessage,
-  stopId: string,
-  now: number,
-): Departure[] {
-  const departures: Departure[] = [];
-
-  for (const entity of feed.entity ?? []) {
-    const tripUpdate = entity.tripUpdate;
-    if (!tripUpdate) continue;
-
-    const routeShortName = tripUpdate.trip?.routeId ?? '';
-    const vehicleType = toVehicleType(routeShortName);
-
-    for (const stopTimeUpdate of tripUpdate.stopTimeUpdate ?? []) {
-      if (!matchesStopId(stopTimeUpdate.stopId, stopId)) continue;
-
-      const depEvent = stopTimeUpdate.departure ?? stopTimeUpdate.arrival;
-      if (!depEvent?.time) continue;
-
-      const expectedUnix = toUnixSeconds(depEvent.time);
-      const delaySeconds = depEvent.delay ?? 0;
-      const plannedUnix = expectedUnix - delaySeconds;
-
-      const minutesAway = Math.round((expectedUnix - now) / 60);
-      if (minutesAway < 0) continue;
-
-      departures.push({
-        routeShortName,
-        headsign: '',
-        plannedDeparture: toISOString(plannedUnix),
-        expectedDeparture: toISOString(expectedUnix),
+      return {
+        routeShortName: p.patternText,
+        headsign: p.direction,
+        plannedDeparture: plannedISO,
+        expectedDeparture: expectedISO,
         delaySeconds,
-        vehicleType,
+        vehicleType: toVehicleType(p.patternText),
         minutesAway,
-      });
-    }
-  }
-
-  return departures;
-}
-
-async function fetchDeparturesForStop(stopId: string): Promise<Departure[]> {
-  const now = Math.floor(Date.now() / 1000);
-
-  const [tramFeed, busFeed] = await Promise.all([
-    fetchGtfsRtFeed('TripUpdates_T.pb'),
-    fetchGtfsRtFeed('TripUpdates_A.pb'),
-  ]);
-
-  const tramDepartures = extractDeparturesForStop(tramFeed, stopId, now);
-  const busDepartures = extractDeparturesForStop(busFeed, stopId, now);
-
-  return [...tramDepartures, ...busDepartures]
+      };
+    })
     .sort((a, b) => a.minutesAway - b.minutesAway)
     .slice(0, MAX_DEPARTURES);
 }
@@ -129,7 +103,7 @@ async function getCachedDepartures(stopIds: string[]): Promise<Departure[]> {
     return cached.data;
   }
 
-  const results = await Promise.all(stopIds.map(fetchDeparturesForStop));
+  const results = await Promise.all(stopIds.map(fetchTtssStop));
   const merged = results
     .flat()
     .sort((a, b) => a.minutesAway - b.minutesAway)
@@ -142,6 +116,7 @@ async function getCachedDepartures(stopIds: string[]): Promise<Departure[]> {
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Cache-Control', 'no-store');
 
   if (req.method === 'OPTIONS') {
     res.status(204).end();

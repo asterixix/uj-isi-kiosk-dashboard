@@ -59,7 +59,7 @@ export const UpcomingEventsPanel: React.FC<Props> = ({
   const sortedEvents = [...events]
     .filter((e) => e.end > now)
     .sort((a, b) => a.start.getTime() - b.start.getTime())
-    .slice(0, 8);
+    .slice(0, 15);
 
   return (
     <div className={`upcoming-events-panel tile ${alertActive ? 'alert-active' : ''}`}>

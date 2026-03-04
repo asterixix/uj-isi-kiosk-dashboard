@@ -35,14 +35,14 @@ function App() {
           />
         </div>
 
-        <div className="tile tile-departures">
+        <div className="tile tile-departures-0">
           <DeparturesPanel
             stopLabel={appConfig.stops[0].label}
             stopIds={appConfig.stops[0].stopIds}
           />
         </div>
 
-        <div className="tile tile-departures">
+        <div className="tile tile-departures-1">
           <DeparturesPanel
             stopLabel={appConfig.stops[1].label}
             stopIds={appConfig.stops[1].stopIds}
