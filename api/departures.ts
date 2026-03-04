@@ -1,4 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import gtfsRt from 'gtfs-realtime-bindings';
+const { transit_realtime } = gtfsRt;
+
+const GTFS_RT_BASE = 'https://gtfs.ztp.krakow.pl';
+const CACHE_TTL_MS = 15_000;
+const MAX_DEPARTURES = 8;
+const FETCH_TIMEOUT_MS = 10_000;
 
 type VehicleType = 'tram' | 'bus';
 
@@ -12,121 +19,148 @@ interface Departure {
   minutesAway: number;
 }
 
-interface TTSSPassage {
-  actualRelativeTime: number;
-  actualTime: string;
-  direction: string;
-  patternText: string;
-  plannedTime: string;
-  relativeTime: number;
-  status: string;
-  vehicleId: string;
-}
-
-interface TTSSResponse {
-  actual: TTSSPassage[];
-  old: TTSSPassage[];
-}
-
 interface CachedDepartures {
-  timestamp: number;
   data: Departure[];
+  expiresAt: number;
 }
 
-const CACHE_TTL_MS = 15_000;
-const TTSS_BASE = 'https://ttss.mpk.krakow.pl/internetservice/services/passageInfo/stopPassages/stop';
 const cache = new Map<string, CachedDepartures>();
 
-function getVehicleType(routeShortName: string): VehicleType {
-  const num = parseInt(routeShortName, 10);
-  return !isNaN(num) && num < 100 ? 'tram' : 'bus';
+function isTramRoute(routeId: string): boolean {
+  const num = parseInt(routeId, 10);
+  return !isNaN(num) && num < 100;
 }
 
-function timeToISO(hhMM: string): string {
-  const [hStr, mStr] = hhMM.split(':');
-  const now = new Date();
-  const d = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    parseInt(hStr, 10),
-    parseInt(mStr, 10),
-    0,
-  );
-  // handle midnight crossover: if the result is more than 3 hours in the past, shift +1 day
-  if (now.getTime() - d.getTime() > 3 * 60 * 60 * 1000) {
-    d.setDate(d.getDate() + 1);
+function toVehicleType(routeId: string): VehicleType {
+  return isTramRoute(routeId) ? 'tram' : 'bus';
+}
+
+function toUnixSeconds(time: transit_realtime.IStopTimeEvent['time']): number {
+  if (time == null) return 0;
+  return typeof time === 'number' ? time : (time as { low: number }).low;
+}
+
+function toISOString(unixSeconds: number): string {
+  return new Date(unixSeconds * 1000).toISOString();
+}
+
+async function fetchGtfsRtFeed(filename: string): Promise<transit_realtime.FeedMessage> {
+  const response = await fetch(`${GTFS_RT_BASE}/${filename}`, {
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    headers: { 'User-Agent': 'UJ-ISI-Kiosk/2.0' },
+  });
+
+  if (!response.ok) {
+    throw new Error(`GTFS-RT fetch failed: ${response.status} ${filename}`);
   }
-  return d.toISOString();
+
+  const buffer = await response.arrayBuffer();
+  return transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
 }
 
-async function fetchTTSSDepartures(stopId: string): Promise<Departure[]> {
-  const url = `${TTSS_BASE}?stop=${encodeURIComponent(stopId)}&mode=departures&skipCancelled=true&maxCount=30`;
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'UJ-ISI-Kiosk/1.0' },
-    signal: AbortSignal.timeout(8_000),
-  });
+function matchesStopId(gtfsStopId: string | null | undefined, numericStopId: string): boolean {
+  if (!gtfsStopId) return false;
+  return gtfsStopId === numericStopId || gtfsStopId.endsWith(`_${numericStopId}`);
+}
 
-  if (!res.ok) throw new Error(`TTSS responded ${res.status} for stop ${stopId}`);
+function extractDeparturesForStop(
+  feed: transit_realtime.FeedMessage,
+  stopId: string,
+  now: number,
+): Departure[] {
+  const departures: Departure[] = [];
 
-  const json: TTSSResponse = await res.json() as TTSSResponse;
-  const passages = json.actual ?? [];
+  for (const entity of feed.entity ?? []) {
+    const tripUpdate = entity.tripUpdate;
+    if (!tripUpdate) continue;
 
-  return passages.map((p): Departure => {
-    const minutesAway = Math.round(p.actualRelativeTime / 60);
-    return {
-      routeShortName: p.patternText,
-      headsign: p.direction,
-      plannedDeparture: timeToISO(p.plannedTime),
-      expectedDeparture: timeToISO(p.actualTime),
-      delaySeconds: p.actualRelativeTime - p.relativeTime,
-      vehicleType: getVehicleType(p.patternText),
-      minutesAway,
-    };
-  });
+    const routeShortName = tripUpdate.trip?.routeId ?? '';
+    const vehicleType = toVehicleType(routeShortName);
+
+    for (const stopTimeUpdate of tripUpdate.stopTimeUpdate ?? []) {
+      if (!matchesStopId(stopTimeUpdate.stopId, stopId)) continue;
+
+      const depEvent = stopTimeUpdate.departure ?? stopTimeUpdate.arrival;
+      if (!depEvent?.time) continue;
+
+      const expectedUnix = toUnixSeconds(depEvent.time);
+      const delaySeconds = depEvent.delay ?? 0;
+      const plannedUnix = expectedUnix - delaySeconds;
+
+      const minutesAway = Math.round((expectedUnix - now) / 60);
+      if (minutesAway < 0) continue;
+
+      departures.push({
+        routeShortName,
+        headsign: '',
+        plannedDeparture: toISOString(plannedUnix),
+        expectedDeparture: toISOString(expectedUnix),
+        delaySeconds,
+        vehicleType,
+        minutesAway,
+      });
+    }
+  }
+
+  return departures;
+}
+
+async function fetchDeparturesForStop(stopId: string): Promise<Departure[]> {
+  const now = Math.floor(Date.now() / 1000);
+
+  const [tramFeed, busFeed] = await Promise.all([
+    fetchGtfsRtFeed('TripUpdates_T.pb'),
+    fetchGtfsRtFeed('TripUpdates_A.pb'),
+  ]);
+
+  const tramDepartures = extractDeparturesForStop(tramFeed, stopId, now);
+  const busDepartures = extractDeparturesForStop(busFeed, stopId, now);
+
+  return [...tramDepartures, ...busDepartures]
+    .sort((a, b) => a.minutesAway - b.minutesAway)
+    .slice(0, MAX_DEPARTURES);
+}
+
+async function getCachedDepartures(stopIds: string[]): Promise<Departure[]> {
+  const cacheKey = [...stopIds].sort().join('|');
+  const cached = cache.get(cacheKey);
+
+  if (cached && cached.expiresAt > Date.now()) {
+    return cached.data;
+  }
+
+  const results = await Promise.all(stopIds.map(fetchDeparturesForStop));
+  const merged = results
+    .flat()
+    .sort((a, b) => a.minutesAway - b.minutesAway)
+    .slice(0, MAX_DEPARTURES);
+
+  cache.set(cacheKey, { data: merged, expiresAt: Date.now() + CACHE_TTL_MS });
+  return merged;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     res.status(204).end();
     return;
   }
 
-  const rawStop = req.query['stopId'];
-  const stopIds: string[] = Array.isArray(rawStop)
-    ? rawStop
-    : rawStop
-      ? [rawStop]
-      : [];
-
-  if (stopIds.length === 0) {
-    res.status(400).json({ error: 'Missing stopId query parameter' });
+  const rawStopId = req.query['stopId'];
+  if (!rawStopId) {
+    res.status(400).json({ error: 'Missing stopId parameter' });
     return;
   }
 
-  const cacheKey = [...stopIds].sort().join('|');
-  const cached = cache.get(cacheKey);
-  if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
-    res.status(200).json(cached.data);
-    return;
-  }
+  const stopIds = Array.isArray(rawStopId) ? rawStopId : [rawStopId];
 
   try {
-    const results = await Promise.all(stopIds.map(fetchTTSSDepartures));
-    const departures = results
-      .flat()
-      .filter(d => d.minutesAway >= 0)
-      .sort((a, b) => a.minutesAway - b.minutesAway)
-      .slice(0, 8);
-
-    cache.set(cacheKey, { timestamp: Date.now(), data: departures });
+    const departures = await getCachedDepartures(stopIds);
     res.status(200).json(departures);
-  } catch (err) {
-    const message = err instanceof Error ? err.message : 'Unknown error';
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     res.status(500).json({ error: `Failed to fetch departures: ${message}` });
   }
 }
