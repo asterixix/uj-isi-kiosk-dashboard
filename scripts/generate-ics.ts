@@ -11,19 +11,21 @@ const OUTPUT_FILE = join(ROOT, "public", "calendar.ics");
 const SEMESTER_END = "20260619T215959Z";
 const SEMESTER_START = new Date("2026-02-23T00:00:00");
 
-const WEEKDAY_MAP: Record<string, number> = {
-  poniedzialek: 1,
-  wtorek: 2,
-  sroda: 3,
-  czwartek: 4,
-  piatek: 5,
-};
+const WEEKDAY_PREFIXES: Array<[string, number]> = [
+  ["poniedzi", 1],
+  ["wtorek", 2],
+  ["srod", 3],
+  ["czwart", 4],
+  ["piat", 5],
+  ["piajt", 5],
+  ["piqt", 5],
+];
 
 const COURSE_TYPE_PATTERNS: Array<[RegExp, string]> = [
-  [/^wyklad|^wykl\b/i, "WYKŁAD"],
-  [/^cwiczenia|^cwien|^ćwiczenia/i, "ĆWICZENIA"],
-  [/^laboratorium|^lab\b/i, "LABORATORIUM"],
-  [/^konwersatorium/i, "KONWERSATORIUM"],
+  [/^wyklad|^wykl\b|^wyktad|^wyikad/i, "WYKŁAD"],
+  [/^cwiczenia|^cwien|^ćwiczenia|^czwicenia|^czwizania|^czwena|^czwenia|^czwicen|^czwizen|^czwizenia/i, "ĆWICZENIA"],
+  [/^laboratorium|^lab\b|^laboratorum|^laborat/i, "LABORATORIUM"],
+  [/^konwersatorium|^conversatorium|^konwersator|^konwersat/i, "KONWERSATORIUM"],
   [/^seminarium/i, "SEMINARIUM"],
   [/^lektorat/i, "LEKTORAT"],
 ];
@@ -68,8 +70,8 @@ function normalizeToAscii(text: string): string {
 
 function matchWeekday(text: string): number | null {
   const norm = normalizeToAscii(text);
-  for (const [key, val] of Object.entries(WEEKDAY_MAP)) {
-    if (norm.startsWith(key)) return val;
+  for (const [prefix, val] of WEEKDAY_PREFIXES) {
+    if (norm.startsWith(prefix)) return val;
   }
   return null;
 }
@@ -123,7 +125,7 @@ function parseCellTextFormatA(
   text: string
 ): { courseType: string; room: string; courseName: string; lecturer: string } | null {
   const m = text.match(
-    /^(KONWERSATORIUM|LABORATORIUM|WYKLAD|CWICZENIA|CWIEN|SEMINARIUM|LEKTORAT)[,.]?\s+(?:s\.\s*|sala\s+)?(\d+[.,]\d+)\s*/i
+    /^(KONWERSATORIUM|LABORATORIUM|WYKLAD|CWICZENIA|CWIEN|SEMINARIUM|LEKTORAT|LABORATORUM|CzWICENIA|CzWIZENIA|Conversatorium|Konwersatorium|WYKTAD)[,.]?\s+(?:s\.\s*|sala\s+)?(\d+[.,]\d+)\s*/i
   );
   if (!m) return null;
   const courseType = matchCourseType(m[1]);
@@ -203,7 +205,8 @@ function parseCellText(raw: string): {
   const text = raw.replace(/\u00a0/g, " ").trim();
   if (!text || text.length < 5) return null;
 
-  if (/^(KONWERSATORIUM|LABORATORIUM|WYKLAD|CWICZENIA|CWIEN|SEMINARIUM|LEKTORAT)[,.]?\s+(?:s\.\s*|sala\s+)/i.test(text)) {
+  const formatAPattern = /^(KONWERSATORIUM|LABORATORIUM|WYKLAD|CWICZENIA|CWIEN|SEMINARIUM|LEKTORAT|LABORATORUM|CzWICENIA|CzWIZENIA|Conversatorium|Konwersatorium|WYKTAD)[,.]?\s+(?:s\.\s*|sala\s+)?(\d+[.,]\d+)/i;
+  if (formatAPattern.test(text)) {
     return parseCellTextFormatA(text);
   }
 
@@ -252,6 +255,8 @@ function parseTableToEvents(html: string, kierunek: string, stopien: string, rok
   const dayColumns = buildDayColumnMap($);
   const events: CourseEvent[] = [];
 
+  const hasTimeColumn = dayColumns.length > 0 && dayColumns[0] === 0;
+
   $("tr").each((rowIndex, row) => {
     if (rowIndex === 0) return;
 
@@ -265,7 +270,7 @@ function parseTableToEvents(html: string, kierunek: string, stopien: string, rok
         const colspan = parseInt($(cell).attr("colspan") ?? "1", 10);
         const rowspan = parseInt($(cell).attr("rowspan") ?? "1", 10);
 
-        if (cellCol === 0) {
+        if (hasTimeColumn && cellCol === 0) {
           cellCol += colspan;
           return;
         }
