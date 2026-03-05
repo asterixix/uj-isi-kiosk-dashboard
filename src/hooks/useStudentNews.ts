@@ -20,7 +20,7 @@ export function useStudentNews() {
 
     fetchNews();
 
-    const id = setInterval(fetchNews, 24 * 60 * 60 * 1000);
+    const id = setInterval(fetchNews, 60 * 60 * 1000);
     return () => clearInterval(id);
   }, []);
 
