@@ -66,3 +66,9 @@ body {
   flex: 1;
   width: 100%;
 }
+
+.dashboard-footer {
+  height: 60px;
+  flex-shrink: 0;
+  z-index: 100;
+}

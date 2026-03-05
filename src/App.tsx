@@ -4,14 +4,17 @@ import { TimeWeatherWidget } from './components/TimeWeatherWidget';
 import { UpcomingEventsPanel } from './components/UpcomingEventsPanel';
 import { DeparturesPanel } from './components/DeparturesPanel';
 import { NewsTicker } from './components/NewsTicker';
+import { UJNewsTicker } from './components/UJNewsTicker';
 import { useCalendar } from './hooks/useCalendar';
 import { useStudentNews } from './hooks/useStudentNews';
+import { useUJNews } from './hooks/useUJNews';
 import { useEventNotifications } from './hooks/useEventNotifications';
 import { appConfig } from './config/appConfig';
 
 function App() {
   const { events, hasFile, handleFileUpload } = useCalendar();
   const { news, error: newsError } = useStudentNews();
+  const { news: ujNews, error: ujNewsError } = useUJNews();
   const { alertActive, upcomingAlerts } = useEventNotifications(events);
 
   return (
@@ -49,6 +52,10 @@ function App() {
           />
         </div>
       </main>
+
+      <footer className="dashboard-footer">
+        <UJNewsTicker news={ujNews} error={ujNewsError} />
+      </footer>
     </div>
   );
 }

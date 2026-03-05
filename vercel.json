@@ -6,6 +6,10 @@
     {
       "path": "/api/cron/refresh-news",
       "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/refresh-uj-news",
+      "schedule": "0 2 * * *"
     }
   ],
   "rewrites": [

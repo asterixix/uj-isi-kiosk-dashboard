@@ -32,6 +32,13 @@ export interface WeatherData {
   time: string;
 }
 
+export interface UJNewsItem {
+  id: string;
+  title: string;
+  date: string;
+  url: string;
+}
+
 export interface AirQualityData {
   pm10: number;
   pm25: number;
