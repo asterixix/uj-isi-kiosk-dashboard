@@ -12,7 +12,7 @@ import { useEventNotifications } from './hooks/useEventNotifications';
 import { appConfig } from './config/appConfig';
 
 function App() {
-  const { events, hasFile, handleFileUpload } = useCalendar();
+  const { events, calendarReady, calendarError } = useCalendar();
   const { news, error: newsError } = useStudentNews();
   const { news: ujNews, error: ujNewsError } = useUJNews();
   const { alertActive, upcomingAlerts } = useEventNotifications(events);
@@ -33,8 +33,8 @@ function App() {
             events={events}
             alertActive={alertActive}
             upcomingAlerts={upcomingAlerts}
-            hasFile={hasFile}
-            onFileUpload={handleFileUpload}
+            calendarReady={calendarReady}
+            calendarError={calendarError}
           />
         </div>
 

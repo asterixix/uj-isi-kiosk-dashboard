@@ -8,7 +8,7 @@ Interaktywna tablica kioskowa wyświetlająca komunikaty dla studentów Instytut
 - **Godzina i data** — zegar w strefie Europe/Warsaw
 - **Komunikaty studenckie** — scrapowane z [isi.uj.edu.pl/studenci/news/komunikaty](https://isi.uj.edu.pl/studenci/news/komunikaty)
 - **Odjazdy MPK** — najbliższe tramwaje i autobusy z przystanków Kampus UJ i Norymberska (TTSS Kraków)
-- **Kalendarz wydarzeń** — wczytywanie pliku `.ics` z własnymi wydarzeniami
+- **Kalendarz wydarzeń** — automatyczne ładowanie `public/calendar.ics` i grupowanie zajęć (kierunek, stopień, rok)
 
 ## Technologia
 
@@ -50,7 +50,11 @@ Aby zweryfikować lub zmienić ID przystanku:
 
 ## Kalendarz ICS
 
-Użytkownik może wczytać własny plik `.ics` z wydarzeniami. Plik jest przechowywany w `localStorage` przeglądarki.
+Źródłem wydarzeń jest plik `public/calendar.ics`.
+
+- Frontend pobiera ten plik cyklicznie (co godzinę).
+- Nie ma już uploadu kalendarza przez dashboard.
+- Powiadomienia dźwiękowe i banner działają na podstawie najbliższych wydarzeń z tego pliku.
 
 ## Licencja
 

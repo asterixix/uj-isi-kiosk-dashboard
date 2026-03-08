@@ -6,6 +6,37 @@ function extractDescriptionField(description: string, key: string): string {
   return description.match(re)?.[1]?.trim() ?? '';
 }
 
+function parseAcademicSummary(summary: string): {
+  subject: string;
+  program: string;
+  studyDegree: string;
+  studyYear: number | null;
+  groupLabel: string;
+} {
+  const bracketMatch = summary.match(/^\[([^\]]+)\]\s*(.+)$/);
+  const subjectWithGroup = bracketMatch?.[2]?.trim() || summary.trim();
+  const metaRaw = bracketMatch?.[1]?.trim() || '';
+
+  const tokens = metaRaw.split(/\s+/).filter(Boolean);
+  const program = tokens[0] ?? '';
+  const studyDegree = tokens[1] ?? '';
+  const yearToken = tokens.find((token) => /^\d+$/.test(token));
+  const studyYear = yearToken ? Number.parseInt(yearToken, 10) : null;
+
+  const groupMatch = subjectWithGroup.match(/\bgr\.?\s*([A-Za-z0-9IVX]+)\b/i);
+  const groupLabel = groupMatch?.[1]?.trim().toUpperCase() ?? '';
+
+  const subject = subjectWithGroup.replace(/\s+gr\.?\s*[A-Za-z0-9IVX]+\s*$/i, '').trim();
+
+  return {
+    subject,
+    program,
+    studyDegree,
+    studyYear,
+    groupLabel,
+  };
+}
+
 export function parseIcsEvents(icsText: string): CalendarEvent[] {
   const jcalData = ICAL.parse(icsText);
   const comp = new ICAL.Component(jcalData);
@@ -21,40 +52,26 @@ export function parseIcsEvents(icsText: string): CalendarEvent[] {
     .map((vevent: ICAL.Component) => {
       const event = new ICAL.Event(vevent);
       const rawDescription = event.description || '';
+      const summary = event.summary || 'Untitled Event';
+      const academicMeta = parseAcademicSummary(summary);
+
       return {
         id: event.uid || crypto.randomUUID(),
-        summary: event.summary || 'Untitled Event',
+        summary,
+        subject: academicMeta.subject,
         location: event.location || extractDescriptionField(rawDescription, 'Sala'),
         description: rawDescription,
-        courseType: extractDescriptionField(rawDescription, 'Rodzaj zajęć'),
+        courseType:
+          extractDescriptionField(rawDescription, 'Rodzaj') ||
+          extractDescriptionField(rawDescription, 'Rodzaj zajęć'),
         lecturer: extractDescriptionField(rawDescription, 'Prowadzący'),
+        program: academicMeta.program,
+        studyDegree: academicMeta.studyDegree,
+        studyYear: academicMeta.studyYear,
+        groupLabel: academicMeta.groupLabel,
         start: event.startDate.toJSDate(),
         end: event.endDate.toJSDate(),
       };
     })
     .sort((a, b) => a.start.getTime() - b.start.getTime());
-}
-
-const STORAGE_KEY = 'uj-kiosk-ics-events';
-
-export function saveEventsToStorage(events: CalendarEvent[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-}
-
-export function loadEventsFromStorage(): CalendarEvent[] | null {
-  const data = localStorage.getItem(STORAGE_KEY);
-  if (!data) return null;
-
-  try {
-    const parsed = JSON.parse(data) as CalendarEvent[];
-    return parsed.map((e) => ({
-      ...e,
-      courseType: e.courseType ?? '',
-      lecturer: e.lecturer ?? '',
-      start: new Date(e.start),
-      end: new Date(e.end),
-    }));
-  } catch {
-    return null;
-  }
 }

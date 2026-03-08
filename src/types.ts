@@ -1,10 +1,15 @@
 export interface CalendarEvent {
   id: string;
   summary: string;
+  subject: string;
   location: string;
   description: string;
   courseType: string;
   lecturer: string;
+  program: string;
+  studyDegree: string;
+  studyYear: number | null;
+  groupLabel: string;
   start: Date;
   end: Date;
 }
