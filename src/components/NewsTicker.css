@@ -9,6 +9,8 @@
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  padding: 0.35em 0;
+  box-sizing: border-box;
 }
 
 .ticker-wrap {
@@ -19,7 +21,7 @@
 .ticker-move {
   display: inline-flex;
   white-space: nowrap;
-  animation: ticker 120s linear infinite;
+  animation: ticker 60s linear infinite;
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
@@ -27,9 +29,9 @@
 .ticker-item {
   flex-shrink: 0;
   padding-right: 0;
-  font-size: clamp(1.4rem, 2.8vh, 2rem);
-  font-weight: 500;
-  line-height: 1;
+  font-size: clamp(1.7rem, 3.3vh, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 @keyframes ticker {

@@ -4,12 +4,32 @@
   height: 100%;
 }
 
+.departures-panel .panel-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid var(--uj-border);
+  background-color: var(--uj-surface);
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.departures-panel .panel-header h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--uj-primary);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
 .departures-loading,
 .departures-error,
 .departures-empty {
   padding: 2rem;
   text-align: center;
   color: var(--uj-text-muted);
+  font-size: 1rem;
 }
 
 .departures-error {
@@ -24,20 +44,20 @@
 .departure-row {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.6rem;
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
   border-bottom: 1px solid var(--uj-border);
 }
 
 .departure-line {
-  min-width: 2.1rem;
-  height: 1.6rem;
+  min-width: 2.8rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: white;
   flex-shrink: 0;
 }
@@ -52,7 +72,8 @@
 
 .departure-direction {
   flex: 1;
-  font-size: 0.8rem;
+  font-size: 1.02rem;
+  font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -60,10 +81,10 @@
 
 .departure-time {
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   font-variant-numeric: tabular-nums;
   color: var(--uj-primary);
-  min-width: 3.2rem;
+  min-width: 4.2rem;
   text-align: right;
   flex-shrink: 0;
 }
@@ -73,14 +94,14 @@
 }
 
 .departure-delay {
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   color: var(--uj-accent);
   font-weight: 600;
   flex-shrink: 0;
 }
 
 .departure-scheduled {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--uj-text-muted);
   flex-shrink: 0;
   opacity: 0.7;
