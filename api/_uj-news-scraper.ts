@@ -43,13 +43,28 @@ function isUpcomingOrOngoing(start: Date, end: Date | null): boolean {
   return eventEnd >= today && start <= cutoff;
 }
 
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&#8211;/g, "–")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function decodeParam(value: string | null): string {
   if (!value) return "";
+  let decoded = value.replace(/\+/g, " ");
   try {
-    return decodeURIComponent(value.replace(/\+/g, " ")).trim();
+    decoded = decodeURIComponent(decoded);
   } catch {
-    return value.replace(/\+/g, " ").trim();
+    // keep best-effort decoded
   }
+  return decodeHtmlEntities(decoded);
 }
 
 export function extractUJNewsFromHtml(html: string): UJNewsItem[] {
