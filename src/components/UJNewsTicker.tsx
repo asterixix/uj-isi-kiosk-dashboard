@@ -1,8 +1,7 @@
 import type { UJNewsItem } from '../types';
 import './UJNewsTicker.css';
 
-const MORE_SUFFIX = 'Więcej przeczytasz na uj.edu.pl/wiadomosci';
-const MAX_TITLES = 3;
+const MORE_SUFFIX = 'Więcej wydarzeń w kalendarzu UJ: uj.edu.pl/kalendarz';
 
 interface UJNewsTickerProps {
   news: UJNewsItem[];
@@ -25,8 +24,8 @@ export const UJNewsTicker = ({ news, error }: UJNewsTickerProps) => {
     );
   }
 
-  const titles = news.slice(0, MAX_TITLES).map((item) => item.title);
-  const content = [...titles, MORE_SUFFIX].join(' | ') + ' | ';
+  const entries = news.map((item) => `${item.date} · ${item.title}`);
+  const content = [...entries, MORE_SUFFIX].join(' | ') + ' | ';
 
   return (
     <div className="uj-news-ticker">

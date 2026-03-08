@@ -22,7 +22,7 @@
 .uj-ticker-move {
   display: inline-flex;
   white-space: nowrap;
-  animation: uj-ticker 45s linear infinite;
+  animation: uj-ticker 150s linear infinite;
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
