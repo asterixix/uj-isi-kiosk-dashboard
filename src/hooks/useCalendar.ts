@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import type { CalendarEvent } from '../types';
 import { parseIcsEvents } from '../utils/icsParser';
 
-const ICS_URL = '/api/calendar';
+const ICS_URL = import.meta.env.DEV ? '/calendar.ics' : '/api/calendar';
 const REFRESH_INTERVAL_MS = 60 * 60 * 1000;
 
 export function useCalendar() {
@@ -35,7 +35,5 @@ export function useCalendar() {
     return () => clearInterval(id);
   }, [loadFromUrl]);
 
-  const upcomingEvents = events.filter((e) => e.end.getTime() > Date.now());
-
-  return { events: upcomingEvents, calendarReady, calendarError };
+  return { events, calendarReady, calendarError };
 }

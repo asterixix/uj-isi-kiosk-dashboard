@@ -6,6 +6,17 @@ function extractDescriptionField(description: string, key: string): string {
   return description.match(re)?.[1]?.trim() ?? '';
 }
 
+function normalizeStudyDegreeToken(token: string | undefined): string {
+  if (!token) return '';
+  const t = token.toLowerCase();
+
+  if (t === 'i' || t === 'ii') return token;
+  if (t.startsWith('lic')) return 'I';
+  if (t.startsWith('mgr') || t.startsWith('mag')) return 'II';
+
+  return token;
+}
+
 function parseAcademicSummary(summary: string): {
   subject: string;
   program: string;
@@ -19,7 +30,7 @@ function parseAcademicSummary(summary: string): {
 
   const tokens = metaRaw.split(/\s+/).filter(Boolean);
   const program = tokens[0] ?? '';
-  const studyDegree = tokens[1] ?? '';
+  const studyDegree = normalizeStudyDegreeToken(tokens[1]);
   const yearToken = tokens.find((token) => /^\d+$/.test(token));
   const studyYear = yearToken ? Number.parseInt(yearToken, 10) : null;
 
