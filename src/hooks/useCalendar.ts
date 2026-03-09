@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import type { CalendarEvent } from '../types';
 import { parseIcsEvents } from '../utils/icsParser';
 
-const ICS_URL = '/calendar.ics';
+const ICS_URL = '/api/calendar';
 const REFRESH_INTERVAL_MS = 60 * 60 * 1000;
 
 export function useCalendar() {
