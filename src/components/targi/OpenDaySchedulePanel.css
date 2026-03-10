@@ -1,0 +1,174 @@
+.open-day-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.open-day-header {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid var(--uj-border);
+  background-color: var(--uj-surface);
+  flex-shrink: 0;
+}
+
+.open-day-header h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--uj-primary);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.open-day-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--uj-surface);
+  border-bottom: 1px solid var(--uj-border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.open-day-tab {
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--uj-border);
+  background: white;
+  color: var(--uj-text-muted);
+  font-size: clamp(0.7rem, 1.25vh, 0.82rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.open-day-tab:hover {
+  border-color: var(--uj-primary);
+  color: var(--uj-primary);
+}
+
+.open-day-tab.active {
+  background: var(--uj-primary);
+  border-color: var(--uj-primary);
+  color: white;
+}
+
+.open-day-schedule {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.schedule-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.schedule-entry--past {
+  opacity: 0.42;
+  background: transparent;
+  border-left-color: var(--uj-border);
+}
+
+.schedule-entry--current {
+  background: linear-gradient(135deg, rgba(0, 81, 158, 0.1), rgba(0, 81, 158, 0.04));
+  border-left-color: var(--uj-primary);
+}
+
+.schedule-entry--upcoming {
+  background: rgba(0, 0, 0, 0.018);
+  border-left-color: var(--uj-border);
+}
+
+.schedule-time {
+  font-size: clamp(0.8rem, 1.5vh, 1rem);
+  font-weight: 700;
+  color: var(--uj-primary);
+  font-variant-numeric: tabular-nums;
+  min-width: 2.8rem;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.schedule-entry--past .schedule-time {
+  color: var(--uj-text-muted);
+}
+
+.schedule-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.schedule-title {
+  font-size: clamp(0.8rem, 1.45vh, 0.95rem);
+  font-weight: 600;
+  color: var(--uj-text);
+  line-height: 1.35;
+}
+
+.schedule-entry--current .schedule-title {
+  color: var(--uj-primary);
+}
+
+.schedule-detail {
+  font-size: clamp(0.7rem, 1.2vh, 0.82rem);
+  color: var(--uj-text-muted);
+  font-style: italic;
+}
+
+.schedule-now-badge {
+  flex-shrink: 0;
+  background: var(--uj-primary);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  align-self: center;
+  animation: badge-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.open-day-cycle-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  flex-shrink: 0;
+  border-top: 1px solid var(--uj-border);
+}
+
+.cycle-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--uj-border);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.cycle-dot.active {
+  background: var(--uj-primary);
+  transform: scale(1.35);
+}

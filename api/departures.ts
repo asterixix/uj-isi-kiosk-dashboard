@@ -9,11 +9,14 @@ const GTFS_BASE = 'https://gtfs.ztp.krakow.pl';
 const TRAM_STOP_IDS: Record<string, string[]> = {
   '234361': ['stop_346_269019', 'stop_346_269029'],
   '234363': ['stop_345_268819', 'stop_345_268829'],
+  'teatr-bagatela': ['stop_191_7729', 'stop_191_7739'],
 };
 
 const BUS_STOP_IDS: Record<string, string[]> = {
   '234361': ['stop_1134_269003', 'stop_1134_269004'],
   '234363': ['stop_1132_268803', 'stop_1132_268804'],
+  'agh-ur': ['stop_1626_311101', 'stop_1626_311102'],
+  'teatr-bagatela': ['stop_53_7702', 'stop_53_7703'],
 };
 
 interface RouteInfo {
@@ -43,6 +46,9 @@ interface Departure {
   isScheduled?: boolean;
 }
 
+const ALL_TRAM_STOP_IDS = Object.values(TRAM_STOP_IDS).flat();
+const ALL_BUS_STOP_IDS = Object.values(BUS_STOP_IDS).flat();
+
 const tramCache: GtfsStaticCache = { tripMap: new Map(), stopSchedules: new Map(), fetchedAt: 0 };
 const busCache: GtfsStaticCache = { tripMap: new Map(), stopSchedules: new Map(), fetchedAt: 0 };
 
@@ -71,9 +77,10 @@ function minutesToDate(minutesSinceMidnight: number, todayMidnight: Date): Date 
   return result;
 }
 
-async function loadGtfsStatic(zipUrl: string, cache: GtfsStaticCache, targetStopIds: string[]): Promise<GtfsStaticCache> {
+async function loadGtfsStatic(zipUrl: string, cache: GtfsStaticCache, allStopIds: string[], requestedStopIds: string[]): Promise<GtfsStaticCache> {
   const now = Date.now();
-  if (cache.tripMap.size > 0 && now - cache.fetchedAt < CACHE_TTL_MS) {
+  const allCached = requestedStopIds.every(id => cache.stopSchedules.has(id));
+  if (cache.tripMap.size > 0 && now - cache.fetchedAt < CACHE_TTL_MS && allCached) {
     return cache;
   }
 
@@ -103,7 +110,7 @@ async function loadGtfsStatic(zipUrl: string, cache: GtfsStaticCache, targetStop
     }
   }
 
-  const targetSet = new Set(targetStopIds);
+  const targetSet = new Set(allStopIds);
   const stopSchedules = new Map<string, ScheduledStop[]>();
 
   for (const row of parseCsv(decoder.decode(files['stop_times.txt']))) {
@@ -230,14 +237,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const results: Departure[] = [];
 
     if (tramStopIds) {
-      const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_T.zip`, tramCache, tramStopIds);
+      const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_T.zip`, tramCache, ALL_TRAM_STOP_IDS, tramStopIds);
       const live = await fetchLiveDepartures(`${GTFS_BASE}/TripUpdates_T.pb`, tramStopIds, staticData.tripMap, 'tram');
       results.push(...(live.length > 0 ? live : getScheduledDepartures(tramStopIds, staticData.stopSchedules, staticData.tripMap, 'tram')));
     }
 
     if (busStopIds) {
       try {
-        const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_A.zip`, busCache, busStopIds);
+        const staticData = await loadGtfsStatic(`${GTFS_BASE}/GTFS_KRK_A.zip`, busCache, ALL_BUS_STOP_IDS, busStopIds);
         const live = await fetchLiveDepartures(`${GTFS_BASE}/TripUpdates_A.pb`, busStopIds, staticData.tripMap, 'bus');
         results.push(...(live.length > 0 ? live : getScheduledDepartures(busStopIds, staticData.stopSchedules, staticData.tripMap, 'bus')));
       } catch {
