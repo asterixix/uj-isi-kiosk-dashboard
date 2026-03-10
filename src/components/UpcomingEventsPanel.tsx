@@ -79,14 +79,6 @@ const formatRelative = (date: Date): string => {
   return `za ${hours} h ${remainder} min`;
 };
 
-const groupTitle = (event: CalendarEvent): string => {
-  const parts = [event.program, event.studyDegree, event.studyYear ? `Rok ${event.studyYear}` : '']
-    .map((part) => part.trim())
-    .filter(Boolean);
-
-  return parts.length > 0 ? parts.join(' | ') : 'Pozostałe grupy';
-};
-
 const cohortTitle = (cohort: CohortDef): string =>
   `${cohort.program} | ${cohort.studyDegree} stopień | Rok ${cohort.studyYear}`;
 
@@ -126,8 +118,6 @@ export function UpcomingEventsPanel({
     };
   });
 
-  const nextEvent = sortedEvents[0];
-
   return (
     <div className={`upcoming-events-panel tile ${alertActive ? 'alert-active' : ''}`}>
       <div className="panel-header">
@@ -152,22 +142,6 @@ export function UpcomingEventsPanel({
         </div>
       ) : (
         <div className="events-content">
-          {nextEvent ? (
-            <div className="next-event-highlight">
-              <div className="next-event-label">Najbliżej</div>
-              <div className="next-event-main">{groupTitle(nextEvent)}</div>
-              <div className="next-event-meta">
-                {formatDayLabel(nextEvent.start)} • {formatTime(nextEvent.start)}-{formatTime(nextEvent.end)} • {nextEvent.subject}
-              </div>
-            </div>
-          ) : (
-            <div className="next-event-highlight next-event-empty">
-              <div className="next-event-label">Najbliżej</div>
-              <div className="next-event-main">Brak nadchodzących zajęć</div>
-              <div className="next-event-meta">Wszystkie 10 grup jest widoczne poniżej</div>
-            </div>
-          )}
-
           <div className="events-group-list">
             {nextEventPerCohort.map(({ cohort, event }) => {
               return (
