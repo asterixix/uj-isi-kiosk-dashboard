@@ -451,6 +451,11 @@ function main(): void {
   const summerEvents = processDirectory(join(PLANS_DIR, "summer"));
   const allEvents = [...winterEvents, ...summerEvents];
 
+  if (allEvents.length === 0) {
+    console.log("No source plan files found in public/plans/ — skipping calendar.ics overwrite.");
+    return;
+  }
+
   const vevents = allEvents.map((event) => eventToVevents(event, dtstamp));
   writeFileSync(OUTPUT_FILE, buildCalendar(vevents), "utf-8");
 
