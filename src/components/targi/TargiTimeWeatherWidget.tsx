@@ -33,7 +33,17 @@ function AirQualitySection({ data }: { data: AirQualityData }) {
   );
 }
 
-export function TargiTimeWeatherWidget() {
+interface Props {
+  qrUrl?: string;
+  qrLabel?: string;
+  qrCaption?: string;
+}
+
+export function TargiTimeWeatherWidget({
+  qrUrl = REKRUTACJA_URL,
+  qrLabel = 'Rekrutacja ISI UJ',
+  qrCaption = 'isi.uj.edu.pl/rekrutacja',
+}: Props) {
   const { clock, weather, weatherError, airQuality } = useTimeWeather();
   const weatherInfo = weather ? getWeatherInfo(weather.weatherCode) : null;
 
@@ -67,16 +77,16 @@ export function TargiTimeWeatherWidget() {
       {airQuality && <AirQualitySection data={airQuality} />}
 
       <div className="targi-qr-section">
-        <div className="targi-qr-label">Rekrutacja ISI UJ</div>
+        <div className="targi-qr-label">{qrLabel}</div>
         <QRCodeSVG
-          value={REKRUTACJA_URL}
+          value={qrUrl}
           size={110}
           bgColor="#ffffff"
           fgColor="#00519E"
           level="M"
           className="targi-qr-code"
         />
-        <div className="targi-qr-url">isi.uj.edu.pl/rekrutacja</div>
+        <div className="targi-qr-url">{qrCaption}</div>
       </div>
 
       <div className="logos-section">
