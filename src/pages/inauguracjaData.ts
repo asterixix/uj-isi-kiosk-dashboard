@@ -203,7 +203,23 @@ export const ALUMNI: { name: string; role?: string }[] = [
   { name: 'dr Dorota Rak' },
 ];
 
+// Sources: RUJ (Horyzonty informacji 7 and 8, AI w bibliotekach); student/graduate status from the editors' forewords.
 export const STUDENT_PUBLICATIONS: { title: string; author: string; where: string }[] = [
+  {
+    title: 'Information behaviour and information needs among individuals with obsessive-compulsive disorder',
+    author: 'Kacper Kurpisz',
+    where: 'Horyzonty informacji 8, 2026',
+  },
+  {
+    title: 'Preliminary design of an information fixer service addressing information apathy',
+    author: 'Amelia Gil, Julia Olszewska, Dominika Siciarz',
+    where: 'Horyzonty informacji 8, 2026',
+  },
+  {
+    title: 'Information avoidance as identity preservation: MAGA information behaviours after the assassination of Charlie Kirk',
+    author: 'Julia Totoń, absolwentka 2025',
+    where: 'Horyzonty informacji 8, 2026',
+  },
   {
     title: 'Agenty AI i Model Context Protocol w repozytoriach naukowych bibliotek akademickich',
     author: 'Artur Sendyka',
@@ -215,9 +231,14 @@ export const STUDENT_PUBLICATIONS: { title: string; author: string; where: strin
     where: 'AI w bibliotekach, 2026',
   },
   {
-    title: 'Patologie kultury internetu: dokąd zmierza społeczność w internecie?',
-    author: 'Artur Sendyka',
-    where: '2025',
+    title: 'AI-generated images and reality distortion among social media users',
+    author: 'Aleksandra Obara, absolwentka 2025',
+    where: 'Horyzonty informacji 7, 2025',
+  },
+  {
+    title: 'Domniemana wartość informacyjna literackiego dzieła fikcjonalnego. Proza Michela Houellebecqa',
+    author: 'Magdalena Biało, absolwentka 2025',
+    where: 'Horyzonty informacji 7, 2025',
   },
 ];
 

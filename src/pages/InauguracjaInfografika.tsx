@@ -107,28 +107,34 @@ function Alumni() {
 function Students() {
   return (
     <>
-      <h1>Studenci też prowadzą badania</h1>
-      <div className="students">
-        <div className="student-pubs">
-          {STUDENT_PUBLICATIONS.map((p, i) => (
-            <div key={p.title} className="student-pub" style={stagger(i)}>
-              <em>{p.title}</em>
-              <span>
-                {p.author}, {p.where}
-              </span>
-            </div>
+      <h1>Studenci też publikują</h1>
+      <div className="trends trends-4">
+        {STUDENT_PUBLICATIONS.map((p, i) => (
+          <div key={p.title} className="trend" style={stagger(i)}>
+            <strong>{p.author}</strong>
+            <em>{p.title}</em>
+            <span>{p.where}</span>
+          </div>
+        ))}
+      </div>
+      <p className="slide-note">Publikacje studentów i absolwentów ISI UJ z roku 2025/2026. Pełne teksty: ruj.uj.edu.pl</p>
+    </>
+  );
+}
+
+function Theses() {
+  return (
+    <>
+      <h1>O czym piszą dyplomanci</h1>
+      <div className="thesis">
+        <h2>Tematy prac dyplomowych 2025/2026</h2>
+        <ul>
+          {THESIS_TOPICS.map((t, i) => (
+            <li key={t} style={stagger(i)}>
+              {t}
+            </li>
           ))}
-        </div>
-        <div className="thesis">
-          <h2>Tematy prac dyplomowych 2025/2026</h2>
-          <ul>
-            {THESIS_TOPICS.map((t, i) => (
-              <li key={t} style={stagger(i)}>
-                {t}
-              </li>
-            ))}
-          </ul>
-        </div>
+        </ul>
       </div>
     </>
   );
@@ -152,7 +158,7 @@ function JoinKolo() {
   );
 }
 
-const SLIDES = [MindMap, Careers, Trends, Alumni, Students, JoinKolo];
+const SLIDES = [MindMap, Careers, Trends, Alumni, Students, Theses, JoinKolo];
 
 export function InauguracjaInfografika() {
   const index = useRotation(SLIDES.length, SLIDE_MS);

@@ -17,6 +17,21 @@ const ROUTES: [string, ComponentType][] = [
 
 const Page = ROUTES.find(([prefix]) => window.location.pathname.startsWith(prefix))?.[1] ?? App;
 
+// Kiosks never reload on their own: poll index.html and reload once a new deploy changes the hashed bundle name.
+const BUNDLE_RE = /\/assets\/index-[\w-]+\.js/;
+const loadedBundle = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/assets/"]')?.getAttribute('src');
+if (import.meta.env.PROD && loadedBundle) {
+  setInterval(async () => {
+    try {
+      const html = await (await fetch('/', { cache: 'no-store' })).text();
+      const latest = html.match(BUNDLE_RE)?.[0];
+      if (latest && !loadedBundle.endsWith(latest)) window.location.reload();
+    } catch {
+      // offline or mid-deploy: try again next tick
+    }
+  }, 2 * 60_000);
+}
+
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Page />

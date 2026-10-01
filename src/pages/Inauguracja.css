@@ -460,6 +460,15 @@
   margin-top: 4vh;
 }
 
+.trends-4 {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 2vh;
+}
+
+.trends-4 .trend {
+  padding: 2vh 1.4vw;
+}
+
 .career,
 .trend {
   display: flex;
@@ -530,37 +539,17 @@
   color: var(--ink-muted);
 }
 
-/* students */
+/* theses */
 
-.students {
+.thesis {
   flex: 1;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  gap: 4vw;
-}
-
-.student-pubs {
   display: flex;
   flex-direction: column;
-  gap: 4.5vh;
-}
-
-.student-pub em {
-  display: block;
-  font-size: 3.8vh;
-  line-height: 1.25;
-}
-
-.student-pub span {
-  display: block;
-  margin-top: 1vh;
-  font-size: 2.6vh;
-  color: var(--ink-muted);
+  justify-content: center;
 }
 
 .thesis h2 {
-  font-size: 3vh;
+  font-size: 3.4vh;
   color: var(--ink-muted);
   font-weight: 600;
 }
@@ -569,16 +558,16 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.6vh 0.8vw;
-  margin-top: 2vh;
+  gap: 2.4vh 1.2vw;
+  margin-top: 3vh;
 }
 
 .thesis li {
-  padding: 1.3vh 1.3vw;
+  padding: 2vh 2vw;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 2.6vh;
+  font-size: 3.6vh;
 }
 
 /* join */
