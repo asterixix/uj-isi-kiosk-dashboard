@@ -217,7 +217,7 @@ export const STUDENT_PUBLICATIONS: { title: string; author: string; where: strin
   },
   {
     title: 'Information avoidance as identity preservation: MAGA information behaviours after the assassination of Charlie Kirk',
-    author: 'Julia Totoń, absolwentka 2025',
+    author: 'Julia Totoń',
     where: 'Horyzonty informacji 8, 2026',
   },
   {

@@ -125,7 +125,7 @@ function Students() {
 function Theses() {
   return (
     <>
-      <h1>O czym piszą dyplomanci</h1>
+      <h1>O czym piszą studenci w pracach dyplomowych</h1>
       <div className="thesis">
         <h2>Tematy prac dyplomowych 2025/2026</h2>
         <ul>
